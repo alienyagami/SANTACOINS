@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Session Expired — SANTA COINS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { outfit: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        primary: '#6C3CE0',
+                        accent: '#FF6B35',
+                        dark: { 900: '#0A0A1A', 800: '#12122A', 700: '#1A1A3E' },
+                        neon: { blue: '#00D4FF', pink: '#FF2D95', green: '#00FF88', yellow: '#FFD700' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0A0A1A;
+            color: #fff;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        .float-anim {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #FFD700 0%, #FFF 25%, #FFD700 50%, #FFF 75%, #FFD700 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex items-center justify-center p-6">
+
+    <!-- Background glow -->
+    <div class="fixed inset-0 pointer-events-none">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-red-500/10 to-orange-500/10 blur-3xl">
+        </div>
+    </div>
+
+    <div class="relative z-10 max-w-lg w-full text-center">
+        <!-- Icon -->
+        <div class="text-8xl mb-8 float-anim">⏰</div>
+
+        <!-- Title -->
+        <h1 class="text-5xl sm:text-6xl font-black mb-4">
+            <span class="text-red-500">Sorry,</span> Time Out!
+        </h1>
+
+        <!-- Message -->
+        <p class="text-xl text-gray-400 mb-4 leading-relaxed">
+            Your session has expired. The offer is no longer available.
+        </p>
+        <p class="text-gray-500 mb-10">
+            Don't worry — you can try again by selecting a new game offer.
+        </p>
+
+        <!-- Divider -->
+        <div class="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto rounded-full mb-10"></div>
+
+        <!-- CTA -->
+        <a href="index.html"
+            class="inline-flex items-center gap-3 bg-gradient-to-r from-primary to-purple-500 text-white font-bold text-lg px-8 py-4 rounded-2xl hover:scale-105 transition-transform shadow-lg shadow-primary/30">
+            <span>🎮</span>
+            <span>Browse Games Again</span>
+        </a>
+
+        <!-- Branding -->
+        <div class="mt-16 flex items-center justify-center gap-2 opacity-40">
+            <div
+                class="w-6 h-6 rounded-md bg-gradient-to-br from-primary to-accent flex items-center justify-center text-xs">
+                🪙</div>
+            <span class="text-sm font-bold"><span class="text-white">SANTA</span><span class="shimmer-text">
+                    COINS</span></span>
+        </div>
+    </div>
+
+</body>
+
+</html>
