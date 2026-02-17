@@ -864,6 +864,146 @@
                 padding: 2px 6px;
             }
         }
+
+        /* ===== REDEEM CODE FORM STYLES ===== */
+        .redeem-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .redeem-input-group {
+            position: relative;
+        }
+
+        .redeem-input-group label {
+            display: block;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 6px;
+        }
+
+        .redeem-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(10, 10, 30, 0.8);
+            border: 2px solid rgba(108, 60, 224, 0.25);
+            border-radius: 14px;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .redeem-input::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: 400;
+        }
+
+        .redeem-input:focus {
+            border-color: #6C3CE0;
+            box-shadow: 0 0 20px rgba(108, 60, 224, 0.2);
+        }
+
+        .redeem-input.input-error {
+            border-color: #ef4444;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+            animation: shake 0.4s ease;
+        }
+
+        .redeem-input.input-success {
+            border-color: #00FF88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .redeem-submit-btn {
+            background: linear-gradient(135deg, #6C3CE0, #8B5CF6);
+            border: none;
+            border-radius: 14px;
+            padding: 14px 28px;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .redeem-submit-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(108, 60, 224, 0.4);
+        }
+
+        .redeem-submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .redeem-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .redeem-message {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+            animation: bounce-in 0.4s ease;
+        }
+
+        .redeem-message.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .redeem-message.success {
+            display: block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00FF88;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-8px);
+            }
+
+            40% {
+                transform: translateX(8px);
+            }
+
+            60% {
+                transform: translateX(-4px);
+            }
+
+            80% {
+                transform: translateX(4px);
+            }
+        }
     </style>
 </head>
 
@@ -1096,8 +1236,46 @@
     <!-- POPUP OVERLAY -->
     <div class="popup-overlay" id="popupOverlay">
         <div class="popup-box" id="popupBox">
+            <!-- Stage 0: Redeem Code -->
+            <div id="stage-redeem">
+                <div class="popup-header">
+                    <img id="redeem-artwork" class="game-artwork" src="" alt="Game">
+                    <div class="artwork-overlay"></div>
+                    <div id="redeem-game-icon" class="game-icon-popup bg-gradient-to-br from-primary to-accent"></div>
+                </div>
+
+                <div class="popup-body">
+                    <div class="popup-game-name" id="redeem-game-title">GAME</div>
+                    <h3 class="text-xl font-black mb-1">Redeem Your <span id="redeem-coin-name">Coins</span></h3>
+                    <p class="text-gray-500 text-xs mb-4">Enter your username and redeem code to claim your reward</p>
+
+                    <div class="redeem-form">
+                        <div class="redeem-input-group">
+                            <label>Username</label>
+                            <input type="text" class="redeem-input" id="redeemUsername"
+                                placeholder="Enter your username..." autocomplete="off">
+                        </div>
+                        <div class="redeem-input-group">
+                            <label>Redeem Code</label>
+                            <input type="text" class="redeem-input" id="redeemCode" placeholder="Enter redeem code..."
+                                autocomplete="off">
+                        </div>
+                        <div class="redeem-message" id="redeemMessage"></div>
+                        <button class="redeem-submit-btn" id="redeemSubmitBtn" onclick="validateRedeemCode()">🔓 Redeem
+                            Now</button>
+                    </div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="dot"></div> 4,291 redeemed today
+                    </div>
+                    <div class="stat-item">🔒 Secure</div>
+                </div>
+            </div>
+
             <!-- Stage 1: Charging -->
-            <div id="stage-charging">
+            <div id="stage-charging" class="hidden">
                 <div class="popup-header">
                     <img id="popup-artwork" class="game-artwork" src="" alt="Game">
                     <div class="artwork-overlay"></div>
@@ -1306,33 +1484,52 @@
 
         // ===================== POPUP LOGIC =====================
         const popupOverlay = document.getElementById('popupOverlay');
+        const stageRedeem = document.getElementById('stage-redeem');
         const stageCharging = document.getElementById('stage-charging');
         const stageLocker = document.getElementById('stage-locker');
         const progressBar = document.getElementById('progressBar');
         const counterText = document.getElementById('counterText');
         const timeLeftEl = document.getElementById('timeLeft');
         let progressInterval;
+        let currentGame = null;
 
         function openPopup(game) {
-            // Reset
-            stageCharging.classList.remove('hidden');
+            currentGame = game;
+
+            // Reset all stages
+            stageRedeem.classList.remove('hidden');
+            stageCharging.classList.add('hidden');
             stageLocker.classList.add('hidden');
             progressBar.style.width = '0%';
             counterText.textContent = '0%';
             timeLeftEl.textContent = '10';
 
-            // Set game-specific info
+            // Reset redeem form
+            document.getElementById('redeemUsername').value = '';
+            document.getElementById('redeemCode').value = '';
+            document.getElementById('redeemMessage').className = 'redeem-message';
+            document.getElementById('redeemMessage').textContent = '';
+            document.getElementById('redeemSubmitBtn').disabled = false;
+            document.getElementById('redeemUsername').classList.remove('input-error', 'input-success');
+            document.getElementById('redeemCode').classList.remove('input-error', 'input-success');
+
+            // Set redeem stage game info
+            document.getElementById('redeem-artwork').src = game.artwork;
+            document.getElementById('redeem-game-title').textContent = game.name;
+            document.getElementById('redeem-coin-name').textContent = game.coin;
+            const redeemIcon = document.getElementById('redeem-game-icon');
+            redeemIcon.className = `game-icon-popup bg-gradient-to-br ${game.gradient}`;
+            redeemIcon.textContent = game.emoji;
+
+            // Set charging stage game info
             document.getElementById('popup-coin-name').textContent = game.coin;
             document.getElementById('locker-coin-name').textContent = game.coin;
             document.getElementById('popup-game-title').textContent = game.name;
             document.getElementById('popup-amount').textContent = game.amount;
             document.getElementById('popup-coin-label').textContent = game.coin;
             document.getElementById('popup-price').textContent = game.price;
-
-            // Set artwork
             document.getElementById('popup-artwork').src = game.artwork;
 
-            // Set game icon
             const gameIcon = document.getElementById('popup-game-icon');
             gameIcon.className = `game-icon-popup bg-gradient-to-br ${game.gradient}`;
             gameIcon.textContent = game.emoji;
@@ -1349,7 +1546,59 @@
 
             popupOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
+        }
 
+        function validateRedeemCode() {
+            const username = document.getElementById('redeemUsername').value.trim();
+            const code = document.getElementById('redeemCode').value.trim();
+            const messageEl = document.getElementById('redeemMessage');
+            const usernameInput = document.getElementById('redeemUsername');
+            const codeInput = document.getElementById('redeemCode');
+            const submitBtn = document.getElementById('redeemSubmitBtn');
+
+            // Reset states
+            usernameInput.classList.remove('input-error', 'input-success');
+            codeInput.classList.remove('input-error', 'input-success');
+
+            // Check username
+            if (!username) {
+                usernameInput.classList.add('input-error');
+                messageEl.className = 'redeem-message error';
+                messageEl.textContent = '❌ Please enter your username';
+                return;
+            }
+
+            // Check code
+            if (!code) {
+                codeInput.classList.add('input-error');
+                messageEl.className = 'redeem-message error';
+                messageEl.textContent = '❌ Please enter a redeem code';
+                return;
+            }
+
+            if (code.toLowerCase() !== 'santa1010') {
+                codeInput.classList.add('input-error');
+                messageEl.className = 'redeem-message error';
+                messageEl.textContent = '❌ Invalid Code! Please try again.';
+                return;
+            }
+
+            // SUCCESS
+            usernameInput.classList.add('input-success');
+            codeInput.classList.add('input-success');
+            messageEl.className = 'redeem-message success';
+            messageEl.textContent = '✅ Code Accepted! Generating your reward...';
+            submitBtn.disabled = true;
+
+            // Transition to charging stage after a short delay
+            setTimeout(() => {
+                stageRedeem.classList.add('hidden');
+                stageCharging.classList.remove('hidden');
+                startChargingAnimation();
+            }, 1500);
+        }
+
+        function startChargingAnimation() {
             // Animate progress bar + counter
             let progress = 0;
             const totalDuration = 10000;
