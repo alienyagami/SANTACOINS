@@ -11,7 +11,7 @@ const GAMES = [
         downloads: "5M+",
         author: "Koei Tecmo",
         description: "Nioh 3 Mobile brings brutal samurai action to your fingertips. Master the art of the sword, face terrifying Yokai, and conquer feudal Japan.",
-        subtitle: "Nioh 3 Download APK — Nioh 3 Mobile"
+        subtitle: "Nioh 3 Download Available on Android & iOS"
     },
     {
         id: 2,
