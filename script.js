@@ -11,7 +11,7 @@ const GAMES = [
         downloads: "5M+",
         author: "Koei Tecmo",
         description: "Nioh 3 Mobile brings brutal samurai action to your fingertips. Master the art of the sword, face terrifying Yokai, and conquer feudal Japan.",
-        subtitle: "Nioh 3 on Android & iOS"
+        subtitle: "Nioh 3 Available on Android & iOS"
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const GAMES = [
         downloads: "12M+",
         author: "Capcom",
         description: "Survive the ultimate horror experience. Resident Evil Requiem delivers spine-chilling survival horror optimized for mobile devices.",
-        subtitle: "RE Requiem Download APK — RE Mobile"
+        subtitle: "RE Requiem Available on Android & iOS"
     },
     {
         id: 3,
@@ -31,7 +31,7 @@ const GAMES = [
         downloads: "9M+",
         author: "Rockstar Games",
         description: "GTA 5 mobile is not a regular game, it's a true blockbuster finally delivered on mobile devices. Explore Los Santos like never before.",
-        subtitle: "GTA 5 Download APK — GTA 5 Mobile"
+        subtitle: "GTA 5 Available on Android & iOS"
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ const GAMES = [
         downloads: "7M+",
         author: "Sucker Punch",
         description: "Become the legendary Ghost. Explore the beautiful open world of Tsushima island and fight the Mongol invaders in this stunning mobile port.",
-        subtitle: "Ghost of Tsushima APK — GoT Mobile"
+        subtitle: "Ghost of Tsushima Available on Android & iOS"
     },
     {
         id: 5,
@@ -51,7 +51,7 @@ const GAMES = [
         downloads: "25M+",
         author: "Epic Games",
         description: "Drop in, gear up, and compete! Fortnite mobile delivers the full Battle Royale experience with cross-platform play and constant updates.",
-        subtitle: "Fortnite Download APK — Fortnite Mobile"
+        subtitle: "Fortnite Available on Android & iOS"
     },
     {
         id: 6,
@@ -61,7 +61,7 @@ const GAMES = [
         downloads: "3M+",
         author: "Pearl Abyss",
         description: "Crimson Desert brings a massive open world RPG to mobile. Explore vast landscapes, engage in epic combat, and uncover a deep story.",
-        subtitle: "Crimson Desert APK — CD Mobile"
+        subtitle: "Crimson Desert Available on Android & iOS"
     },
     {
         id: 7,
@@ -71,7 +71,7 @@ const GAMES = [
         downloads: "8M+",
         author: "IO Interactive",
         description: "Become Agent 47 on your mobile device. Plan and execute the perfect assassination across stunning locations around the globe.",
-        subtitle: "Hitman 3 Download APK — Hitman 3 Mobile"
+        subtitle: "Hitman 3 Available on Android & iOS"
     },
     {
         id: 8,
@@ -81,7 +81,7 @@ const GAMES = [
         downloads: "4M+",
         author: "Bungie",
         description: "Marathon is a sci-fi extraction shooter brought to mobile. Dive into a mysterious world, loot, survive, and escape in this intense experience.",
-        subtitle: "Marathon Download APK — Marathon Mobile"
+        subtitle: "Marathon Available on Android & iOS"
     }
 ];
 
