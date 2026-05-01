@@ -719,22 +719,23 @@ input {
 }
 
 /* ===================================
-   MODAL
+   CONTENT LOCKER / VERIFICATION PAGE
    =================================== */
 .modal-overlay {
     position: fixed;
     inset: 0;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 16px;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.35s ease;
+    overflow-y: auto;
 }
 
 .modal-overlay.active {
@@ -742,29 +743,48 @@ input {
     visibility: visible;
 }
 
-.modal-card {
-    background: var(--bg-modal);
-    border-radius: 24px;
+/* --- Locker Page Card --- */
+.locker-page {
+    background: linear-gradient(180deg, #1a1a2e 0%, #16162a 50%, #111125 100%);
+    border-radius: 20px;
     width: 100%;
-    max-width: 380px;
+    max-width: 400px;
     position: relative;
-    border: 1px solid var(--border-card);
-    box-shadow: var(--shadow-modal);
-    transform: scale(0.9) translateY(20px);
-    transition: transform 0.4s var(--ease-out);
+    border: 1px solid rgba(239, 68, 68, 0.15);
+    box-shadow:
+        0 0 60px rgba(239, 68, 68, 0.08),
+        0 25px 60px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transform: scale(0.92) translateY(30px);
+    transition: transform 0.45s var(--ease-out);
     overflow: hidden;
+    padding: 0 0 0 0;
 }
 
-.modal-overlay.active .modal-card {
+.modal-overlay.active .locker-page {
     transform: scale(1) translateY(0);
 }
 
-.modal-close {
+/* Top Glow Effect */
+.locker-top-glow {
     position: absolute;
-    top: 14px;
-    right: 14px;
-    width: 36px;
-    height: 36px;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 120px;
+    background: radial-gradient(ellipse, rgba(239, 68, 68, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Close Button */
+.locker-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.06);
     display: flex;
@@ -772,153 +792,319 @@ input {
     justify-content: center;
     z-index: 10;
     transition: all var(--transition-fast);
+    border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.modal-close svg {
-    width: 18px;
-    height: 18px;
+.locker-close svg {
+    width: 16px;
+    height: 16px;
+    color: var(--text-muted);
 }
 
-.modal-close:hover {
+.locker-close:hover {
     background: rgba(255, 255, 255, 0.12);
     transform: rotate(90deg);
 }
 
-.modal-body {
-    padding: 40px 30px 36px;
-    text-align: center;
-}
-
-.modal-icon-wrapper {
-    width: 130px;
-    height: 130px;
-    margin: 0 auto 16px;
-    border-radius: 22px;
+/* Game Icon */
+.locker-game-icon-wrap {
+    width: 68px;
+    height: 68px;
+    margin: 30px auto 18px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-    border: 2px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.5),
+        0 0 0 2px rgba(239, 68, 68, 0.2);
+    position: relative;
+    z-index: 1;
 }
 
-.modal-game-icon {
+.locker-game-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.modal-platforms {
+/* Title */
+.locker-title {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+    font-style: italic;
+}
+
+.locker-title-accent {
+    background: linear-gradient(135deg, #ef4444, #f97316);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Subtitle */
+.locker-subtitle {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 0 30px;
+    margin-bottom: 22px;
+    position: relative;
+    z-index: 1;
+}
+
+.locker-highlight {
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+.locker-highlight-underline {
+    text-decoration: underline;
+    text-decoration-color: var(--accent-red);
+    text-underline-offset: 3px;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+/* Steps Indicator */
+.locker-steps {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    margin-bottom: 18px;
-    color: var(--text-muted);
-    font-size: 0.82rem;
-    font-weight: 500;
+    gap: 0;
+    padding: 0 40px;
+    margin-bottom: 26px;
+    position: relative;
+    z-index: 1;
 }
 
-.platform-icon {
-    width: 15px;
-    height: 15px;
+.locker-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
 }
 
-.modal-separator {
-    color: var(--text-muted);
-    opacity: 0.4;
-}
-
-.modal-rating,
-.modal-downloads {
+.locker-step-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 2px solid rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
-    gap: 4px;
-}
-
-.modal-rating .star-icon {
-    width: 14px;
-    height: 14px;
-}
-
-.download-count-icon {
-    width: 14px;
-    height: 14px;
-}
-
-.modal-game-title {
-    font-size: 1.75rem;
-    font-weight: 900;
-    letter-spacing: -0.02em;
-    margin-bottom: 6px;
-}
-
-.modal-game-subtitle {
-    font-size: 0.88rem;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-    line-height: 1.5;
-}
-
-.modal-divider {
-    width: 100%;
-    height: 1px;
-    background: var(--border-color);
-    margin-bottom: 24px;
-}
-
-.modal-download-section {
-    margin-bottom: 22px;
-}
-
-.download-ready-text {
-    font-size: 1.3rem;
+    justify-content: center;
+    font-size: 0.85rem;
     font-weight: 800;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.locker-step.completed .locker-step-circle {
+    background: rgba(34, 197, 94, 0.15);
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+.locker-step.active .locker-step-circle {
+    background: linear-gradient(135deg, #ef4444, #f97316);
+    border-color: transparent;
+    color: white;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4);
+    animation: pulseStep 2s ease-in-out infinite;
+}
+
+@keyframes pulseStep {
+    0%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+    50% { box-shadow: 0 0 30px rgba(239, 68, 68, 0.6); }
+}
+
+.locker-step-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.locker-step.completed .locker-step-label {
+    color: #22c55e;
+}
+
+.locker-step.active .locker-step-label {
+    color: var(--accent-red);
+    font-weight: 800;
+}
+
+.locker-step-line {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.08);
+    margin: 0 8px;
+    margin-bottom: 22px;
+    border-radius: 2px;
+    min-width: 30px;
+}
+
+.locker-step-line.completed {
+    background: linear-gradient(90deg, #22c55e, #22c55e);
+}
+
+/* Offers Section */
+.locker-offers-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    margin: 0 20px 20px;
+    padding: 18px;
+    position: relative;
+    z-index: 1;
+}
+
+.locker-offers-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.locker-offers-icon {
+    font-size: 1.5rem;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.locker-offers-title {
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+}
+
+.locker-offers-desc {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* OGAds container - make the content locker fit inside */
+#ogads-locker-container {
+    min-height: 120px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+#ogads-locker-container iframe,
+#ogads-locker-container #locker-iframe {
+    width: 100% !important;
+    min-height: 350px;
+    border: none !important;
+    border-radius: 10px !important;
+    background: transparent;
+    display: block;
+}
+
+/* Override OGAds default styling to blend in */
+#ogads-locker-container iframe {
+    border-radius: 10px !important;
+    width: 100% !important;
+}
+
+/* Verifying Section */
+.locker-verifying {
+    text-align: center;
+    padding: 20px 20px 16px;
+    position: relative;
+    z-index: 1;
+}
+
+.locker-spinner {
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255, 255, 255, 0.08);
+    border-top-color: var(--accent-red);
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    animation: spinLoader 1s linear infinite;
+}
+
+@keyframes spinLoader {
+    to { transform: rotate(360deg); }
+}
+
+.locker-verifying-text {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    font-weight: 500;
     margin-bottom: 4px;
 }
 
-.download-click-text {
-    font-size: 0.88rem;
+.locker-verifying-timer {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+}
+
+/* Bottom Stats Bar */
+.locker-bottom-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 14px 20px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    position: relative;
+    z-index: 1;
+}
+
+.locker-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 500;
     color: var(--text-muted);
 }
 
-.modal-download-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 44px;
-    background: var(--accent-gradient);
-    color: white;
-    font-size: 0.95rem;
-    font-weight: 800;
-    letter-spacing: 0.06em;
-    border-radius: var(--btn-radius);
-    box-shadow: var(--shadow-btn);
-    transition: all var(--transition-fast);
-    cursor: pointer;
-    /* Floating animation */
-    animation: floatBtn 3s ease-in-out infinite;
+.locker-stat-icon {
+    width: 14px;
+    height: 14px;
+    color: var(--accent-red);
 }
 
-.modal-download-btn:hover {
-    transform: scale(1.06);
-    box-shadow: 0 8px 30px rgba(239, 68, 68, 0.55);
+/* Red border glow on sides */
+.locker-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-red), transparent);
+    z-index: 2;
 }
 
-.btn-download-icon {
-    width: 20px;
-    height: 20px;
-}
-
-@keyframes floatBtn {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-6px);
-    }
-}
-
-.modal-download-btn:hover {
-    animation: none;
-    transform: scale(1.06);
+.locker-page::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.5), transparent);
+    z-index: 2;
 }
 
 /* ===================================
@@ -1095,27 +1281,42 @@ input {
         font-size: 0.78rem;
     }
 
-    /* Modal Mobile */
-    .modal-card {
-        max-width: 340px;
+    /* Locker Mobile */
+    .locker-page {
+        max-width: 360px;
     }
 
-    .modal-body {
-        padding: 32px 22px 28px;
+    .locker-title {
+        font-size: 1.35rem;
     }
 
-    .modal-icon-wrapper {
-        width: 110px;
-        height: 110px;
+    .locker-subtitle {
+        font-size: 0.76rem;
+        padding: 0 20px;
     }
 
-    .modal-game-title {
-        font-size: 1.4rem;
+    .locker-steps {
+        padding: 0 24px;
     }
 
-    .modal-download-btn {
-        padding: 12px 36px;
-        font-size: 0.88rem;
+    .locker-step-circle {
+        width: 32px;
+        height: 32px;
+        font-size: 0.8rem;
+    }
+
+    .locker-offers-section {
+        margin: 0 14px 16px;
+        padding: 14px;
+    }
+
+    .locker-bottom-bar {
+        gap: 12px;
+        padding: 12px 14px;
+    }
+
+    .locker-stat {
+        font-size: 0.62rem;
     }
 }
 
