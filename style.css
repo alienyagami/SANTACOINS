@@ -729,13 +729,14 @@ input {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    padding: 16px;
+    padding: 24px 16px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.35s ease;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .modal-overlay.active {
@@ -758,7 +759,9 @@ input {
     transform: scale(0.92) translateY(30px);
     transition: transform 0.45s var(--ease-out);
     overflow: hidden;
-    padding: 0 0 0 0;
+    padding: 0;
+    margin: auto 0;
+    flex-shrink: 0;
 }
 
 .modal-overlay.active .locker-page {
@@ -1282,41 +1285,119 @@ input {
     }
 
     /* Locker Mobile */
+    .modal-overlay {
+        padding: 12px 8px;
+    }
+
     .locker-page {
-        max-width: 360px;
+        max-width: 100%;
+        border-radius: 16px;
+    }
+
+    .locker-game-icon-wrap {
+        width: 56px;
+        height: 56px;
+        margin: 22px auto 12px;
+        border-radius: 14px;
     }
 
     .locker-title {
-        font-size: 1.35rem;
+        font-size: 1.3rem;
+        margin-bottom: 6px;
     }
 
     .locker-subtitle {
         font-size: 0.76rem;
-        padding: 0 20px;
+        padding: 0 18px;
+        margin-bottom: 16px;
     }
 
     .locker-steps {
-        padding: 0 24px;
+        padding: 0 20px;
+        margin-bottom: 18px;
     }
 
     .locker-step-circle {
-        width: 32px;
-        height: 32px;
-        font-size: 0.8rem;
+        width: 30px;
+        height: 30px;
+        font-size: 0.75rem;
+    }
+
+    .locker-step-label {
+        font-size: 0.58rem;
+    }
+
+    .locker-step-line {
+        margin-bottom: 18px;
     }
 
     .locker-offers-section {
-        margin: 0 14px 16px;
-        padding: 14px;
+        margin: 0 10px 12px;
+        padding: 12px;
+    }
+
+    .locker-offers-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+    }
+
+    .locker-offers-title {
+        font-size: 0.9rem;
+    }
+
+    .locker-offers-desc {
+        font-size: 0.7rem;
+    }
+
+    #ogads-locker-container iframe,
+    #ogads-locker-container #locker-iframe {
+        min-height: 300px;
+    }
+
+    .locker-verifying {
+        padding: 14px 16px 10px;
+    }
+
+    .locker-spinner {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 8px;
+    }
+
+    .locker-verifying-text {
+        font-size: 0.76rem;
+    }
+
+    .locker-verifying-timer {
+        font-size: 0.82rem;
     }
 
     .locker-bottom-bar {
-        gap: 12px;
-        padding: 12px 14px;
+        gap: 10px;
+        padding: 10px 12px;
     }
 
     .locker-stat {
-        font-size: 0.62rem;
+        font-size: 0.6rem;
+        gap: 4px;
+    }
+
+    .locker-stat-icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .locker-close {
+        width: 28px;
+        height: 28px;
+        top: 8px;
+        right: 8px;
+    }
+
+    .locker-close svg {
+        width: 14px;
+        height: 14px;
     }
 }
 
