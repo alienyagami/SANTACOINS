@@ -1159,7 +1159,8 @@ input {
     }
 
     .games-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
     }
 
     .header-badge {
@@ -1172,6 +1173,54 @@ input {
 
     .stat-number {
         font-size: 1.25rem;
+    }
+
+    /* Card layout: switch to vertical (stacked) for 2-col grid */
+    .game-card {
+        padding: 14px;
+    }
+
+    .game-card-top {
+        margin-bottom: 10px;
+    }
+
+    .game-card-body {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .game-card-icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .game-card-name-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .game-card-name {
+        font-size: 0.88rem;
+        text-align: center;
+    }
+
+    .game-card-desc {
+        font-size: 0.72rem;
+        -webkit-line-clamp: 2;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    .game-card-footer {
+        justify-content: center;
+    }
+
+    .install-btn {
+        padding: 7px 22px;
+        font-size: 0.78rem;
     }
 }
 
@@ -1261,27 +1310,35 @@ input {
     }
 
     .game-card {
-        padding: 16px;
+        padding: 12px;
+    }
+
+    .game-card-top {
+        margin-bottom: 8px;
+    }
+
+    .game-card-author {
+        font-size: 0.65rem;
     }
 
     .game-card-icon {
-        width: 60px;
-        height: 60px;
+        width: 56px;
+        height: 56px;
         border-radius: 12px;
     }
 
     .game-card-name {
-        font-size: 0.95rem;
+        font-size: 0.82rem;
     }
 
     .game-card-desc {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         -webkit-line-clamp: 2;
     }
 
     .install-btn {
-        padding: 7px 22px;
-        font-size: 0.78rem;
+        padding: 6px 18px;
+        font-size: 0.75rem;
     }
 
     /* Locker Mobile */
@@ -1421,5 +1478,31 @@ input {
     .trending-icon-wrapper {
         width: 76px;
         height: 76px;
+    }
+
+    .games-grid {
+        gap: 10px;
+    }
+
+    .game-card {
+        padding: 10px;
+    }
+
+    .game-card-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .game-card-name {
+        font-size: 0.75rem;
+    }
+
+    .game-card-desc {
+        display: none;
+    }
+
+    .install-btn {
+        padding: 5px 14px;
+        font-size: 0.7rem;
     }
 }
