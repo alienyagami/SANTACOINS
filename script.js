@@ -3,6 +3,7 @@
    ========================================================= */
 
 const GAMES = [
+    // ==================== ORIGINAL GAMES ====================
     {
         id: 1,
         name: "Nioh 3",
@@ -82,6 +83,298 @@ const GAMES = [
         author: "Bungie",
         description: "Marathon is a sci-fi extraction shooter brought to mobile. Dive into a mysterious world, loot, survive, and escape in this intense experience.",
         subtitle: "Marathon Download APK — Marathon Mobile"
+    },
+    // ==================== NEW GAMES ====================
+    {
+        id: 9,
+        name: "GTA VI",
+        icon: "images icons/grand-theft-auto-vi-logo-icon-free-vector.jpg",
+        rating: 4.9,
+        downloads: "50M+",
+        author: "Rockstar Games",
+        description: "Grand Theft Auto VI takes you to the neon-soaked streets of Vice City. Experience the most ambitious open world ever created, now on mobile.",
+        subtitle: "GTA VI Download APK — GTA 6 Mobile"
+    },
+    {
+        id: 10,
+        name: "Reanimal",
+        icon: "images icons/Reanimal_cover_art.jpg",
+        rating: 4.8,
+        downloads: "8M+",
+        author: "Tarsier Studios",
+        description: "From the creators of Little Nightmares, Reanimal is a hauntingly beautiful co-op adventure. Guide two siblings through a dark, mysterious world.",
+        subtitle: "Reanimal Download APK — Reanimal Mobile"
+    },
+    {
+        id: 11,
+        name: "Highguard",
+        icon: "images icons/Highguard.jpg",
+        rating: 4.7,
+        downloads: "6M+",
+        author: "Wildlight Entertainment",
+        description: "Highguard is an intense PvP raid shooter. Team up, strategize, and dominate in fast-paced combat across futuristic arenas.",
+        subtitle: "Highguard Download APK — Highguard Mobile"
+    },
+    {
+        id: 12,
+        name: "Marvel Tōkon: Fighting Souls",
+        icon: "images icons/Marvel-Tokon-Fighting-Souls.jpg",
+        rating: 4.9,
+        downloads: "15M+",
+        author: "Arc System Works",
+        description: "Marvel Tōkon brings anime-style tag-team fighting to mobile. Assemble your team of Marvel heroes and unleash devastating combos.",
+        subtitle: "Marvel Tōkon APK — Marvel Fighting Mobile"
+    },
+    {
+        id: 13,
+        name: "Tomodachi Life: Living the Dream",
+        icon: "images icons/tomodachi-life-living-the-dream_a1tn.600.webp",
+        rating: 4.6,
+        downloads: "12M+",
+        author: "Nintendo",
+        description: "Create Mii characters, build relationships, and watch hilarious scenarios unfold in this charming life simulation game.",
+        subtitle: "Tomodachi Life APK — Tomodachi Mobile"
+    },
+    {
+        id: 14,
+        name: "Cairn",
+        icon: "images icons/Cairn_cover_art.jpg",
+        rating: 4.8,
+        downloads: "4M+",
+        author: "The Game Bakers",
+        description: "Cairn is a survival-climbing simulation. Control every limb as you ascend the treacherous Mount Kami in this breathtaking adventure.",
+        subtitle: "Cairn Download APK — Cairn Mobile"
+    },
+    {
+        id: 15,
+        name: "Dragon Quest 7 Reimagined",
+        icon: "images icons/Dragon Quest 7 Reimagined.jpg",
+        rating: 4.9,
+        downloads: "10M+",
+        author: "Square Enix",
+        description: "The classic JRPG reimagined with stunning diorama art style. Explore forgotten lands, restore lost civilizations, and save the world.",
+        subtitle: "DQ7 Reimagined APK — Dragon Quest Mobile"
+    },
+    {
+        id: 16,
+        name: "Wolverine",
+        icon: "images icons/Wolverine.jpg",
+        rating: 4.9,
+        downloads: "18M+",
+        author: "Insomniac Games",
+        description: "Unleash your claws as Wolverine. Experience brutal, visceral combat in this action-packed adventure from the makers of Spider-Man.",
+        subtitle: "Wolverine Download APK — Wolverine Mobile"
+    },
+    {
+        id: 17,
+        name: "Fable",
+        icon: "images icons/Fable.jpg",
+        rating: 4.8,
+        downloads: "7M+",
+        author: "Playground Games",
+        description: "Return to the magical world of Albion in this stunning reboot. Shape your destiny through choices, combat, and exploration.",
+        subtitle: "Fable Download APK — Fable Mobile"
+    },
+    {
+        id: 18,
+        name: "Witchbrook",
+        icon: "images icons/Witchbrook.jpg",
+        rating: 4.7,
+        downloads: "5M+",
+        author: "Chucklefish",
+        description: "Attend a school of witchcraft in this enchanting pixel-art RPG. Brew potions, cast spells, make friends, and uncover magical secrets.",
+        subtitle: "Witchbrook Download APK — Witchbrook Mobile"
+    },
+    {
+        id: 19,
+        name: "PRAGMATA",
+        icon: "images icons/PRAGMATA.webp",
+        rating: 4.8,
+        downloads: "6M+",
+        author: "Capcom",
+        description: "PRAGMATA is a sci-fi action adventure set in a dystopian near-future. Unravel the mystery alongside a mysterious girl on the Moon.",
+        subtitle: "PRAGMATA Download APK — PRAGMATA Mobile"
+    },
+    {
+        id: 20,
+        name: "Mio: Memories in Orbit",
+        icon: "images icons/Mio Memories in Orbit.jpg",
+        rating: 4.7,
+        downloads: "3M+",
+        author: "Focus Entertainment",
+        description: "Mio is a hand-painted adventure set aboard a space station. Solve puzzles, explore stunning environments, and uncover lost memories.",
+        subtitle: "Mio Download APK — Mio Mobile"
+    },
+    {
+        id: 21,
+        name: "Far Far West",
+        icon: "images icons/Far Far West.webp",
+        rating: 4.6,
+        downloads: "4M+",
+        author: "Evil Raptor",
+        description: "Become a robot cowboy in this wild co-op shooter. Battle monsters, cast spells, and collect bounties in a supernatural Wild West.",
+        subtitle: "Far Far West APK — Far Far West Mobile"
+    },
+    {
+        id: 22,
+        name: "Timberborn",
+        icon: "images icons/Timberborn.webp",
+        rating: 4.8,
+        downloads: "9M+",
+        author: "Mechanistry",
+        description: "Build a thriving beaver civilization in this unique city-building game. Manage resources, control water, and survive droughts.",
+        subtitle: "Timberborn Download APK — Timberborn Mobile"
+    },
+    {
+        id: 23,
+        name: "Pokemon Pokopia",
+        icon: "images icons/Pokemon Pokopia.jpg",
+        rating: 4.9,
+        downloads: "25M+",
+        author: "Game Freak",
+        description: "Explore a brand-new region in Pokopia! Catch, train, and battle with hundreds of Pokémon in this exciting new generation adventure.",
+        subtitle: "Pokemon Pokopia APK — Pokemon Mobile"
+    },
+    {
+        id: 24,
+        name: "Resident Evil 7: biohazard - Gold Edition",
+        icon: "images icons/Resident Evil 7 biohazard - Gold Edition.jpg",
+        rating: 4.9,
+        downloads: "14M+",
+        author: "Capcom",
+        description: "Experience the horror of the Baker family estate. RE7 Gold Edition includes all DLC content for the ultimate survival horror experience.",
+        subtitle: "RE7 Gold Edition APK — RE7 Mobile"
+    },
+    // ==================== ANDROID MOD GAMES ====================
+    {
+        id: 25,
+        name: "Traffic Rider",
+        icon: "images icons/Traffic Rider.png",
+        rating: 4.5,
+        downloads: "100M+",
+        author: "Soner Kara",
+        description: "Race through highway traffic on your motorbike. Experience the thrill of first-person motorcycle racing with stunning graphics.",
+        subtitle: "Traffic Rider MOD APK — Unlimited Money"
+    },
+    {
+        id: 26,
+        name: "Melon Sandbox",
+        icon: "images icons/Melon Sandbox.png",
+        rating: 4.4,
+        downloads: "50M+",
+        author: "0101 Games",
+        description: "A physics-based sandbox game where creativity has no limits. Build, destroy, and experiment with ragdoll physics and various tools.",
+        subtitle: "Melon Sandbox MOD APK — Full Unlocked"
+    },
+    {
+        id: 27,
+        name: "Hill Climb Racing (MOD, Unlimited Money)",
+        icon: "images icons/Hill Climb Racing (MOD, Unlimited Money).jpg",
+        rating: 4.6,
+        downloads: "200M+",
+        author: "Fingersoft",
+        description: "Drive over hills and through rough terrain in this addictive physics-based driving game. Upgrade vehicles and conquer every track.",
+        subtitle: "Hill Climb Racing MOD APK — Unlimited Money"
+    },
+    {
+        id: 28,
+        name: "Shadow Fight 3",
+        icon: "images icons/Shadow Fight 3 .webp",
+        rating: 4.5,
+        downloads: "100M+",
+        author: "Nekki",
+        description: "Enter the world of shadows and become a legendary warrior. Master martial arts, collect epic weapons, and fight in stunning 3D battles.",
+        subtitle: "Shadow Fight 3 MOD APK — Unlimited Everything"
+    },
+    {
+        id: 29,
+        name: "Cooking Fever (MOD, Unlimited Coins/Gems)",
+        icon: "images icons/Cooking Fever (MOD, Unlimited CoinsGems).jpg",
+        rating: 4.5,
+        downloads: "150M+",
+        author: "Nordcurrent",
+        description: "Cook delicious meals in restaurants around the world. Upgrade your kitchen, unlock new recipes, and become a master chef.",
+        subtitle: "Cooking Fever MOD APK — Unlimited Coins/Gems"
+    },
+    {
+        id: 30,
+        name: "Sniper 3D: Fun Free Online FPS (MOD, Unlimited Coins)",
+        icon: "images icons/Sniper 3D Fun Free Online FPS (MOD, Unlimited Coins).jpg",
+        rating: 4.4,
+        downloads: "100M+",
+        author: "Fun Games For Free",
+        description: "Take aim and shoot! Sniper 3D is the ultimate FPS sniper shooting game. Complete missions, upgrade weapons, and eliminate targets.",
+        subtitle: "Sniper 3D MOD APK — Unlimited Coins"
+    },
+    {
+        id: 31,
+        name: "Monoposto (MOD, Unlocked)",
+        icon: "images icons/Monoposto (MOD, Unlocked).jpg",
+        rating: 4.6,
+        downloads: "5M+",
+        author: "SM Games",
+        description: "Experience realistic single-seater racing. Push your limits on iconic circuits with precision driving and stunning visuals.",
+        subtitle: "Monoposto MOD APK — Full Unlocked"
+    },
+    {
+        id: 32,
+        name: "Idle Supermarket Tycoon (MOD, Unlimited Money)",
+        icon: "images icons/Idle Supermarket Tycoon (MOD, Unlimited Money).jpg",
+        rating: 4.3,
+        downloads: "50M+",
+        author: "Codigames",
+        description: "Build and manage your own supermarket empire. Hire staff, stock shelves, and expand your business from a small shop to a mega store.",
+        subtitle: "Idle Supermarket Tycoon MOD APK — Unlimited Money"
+    },
+    {
+        id: 33,
+        name: "Left to Survive (MOD, Unlimited Ammo)",
+        icon: "images icons/Left to Survive (MOD, Unlimited Ammo).jpg",
+        rating: 4.4,
+        downloads: "30M+",
+        author: "MY.GAMES",
+        description: "Survive the zombie apocalypse with intense shooting action. Build your base, rescue survivors, and fight hordes of undead enemies.",
+        subtitle: "Left to Survive MOD APK — Unlimited Ammo"
+    },
+    {
+        id: 34,
+        name: "Drift Max Pro (MOD, Unlimited Money)",
+        icon: "images icons/1711747849_drift-max-pro.png",
+        rating: 4.5,
+        downloads: "50M+",
+        author: "Tiramisu",
+        description: "Master the art of drifting in this realistic car racing game. Tune your ride, hit the track, and score insane drift combos.",
+        subtitle: "Drift Max Pro MOD APK — Unlimited Money"
+    },
+    {
+        id: 35,
+        name: "SimCity BuildIt",
+        icon: "images icons/SimCity BuildIt.jpg",
+        rating: 4.5,
+        downloads: "100M+",
+        author: "Electronic Arts",
+        description: "Build and manage your own city from the ground up. Plan your layout, keep citizens happy, and trade with other mayors worldwide.",
+        subtitle: "SimCity BuildIt MOD APK — Unlimited SimCash"
+    },
+    {
+        id: 36,
+        name: "CSR Racing 2 (MOD, Free Shopping)",
+        icon: "images icons/CSR Racing 2 (MOD, Free Shopping).jpg",
+        rating: 4.6,
+        downloads: "80M+",
+        author: "NaturalMotion",
+        description: "Experience hyper-real drag racing with the most stunning cars. Customize supercars, compete online, and dominate the streets.",
+        subtitle: "CSR Racing 2 MOD APK — Free Shopping"
+    },
+    {
+        id: 37,
+        name: "Spider Fighter 3 (MOD, Unlimited Money)",
+        icon: "images icons/Spider Fighter 3 (MOD, Unlimited Money).jpg",
+        rating: 4.3,
+        downloads: "20M+",
+        author: "Starter Game",
+        description: "Swing through the city as a spider hero! Fight villains, complete missions, and protect the city with amazing superpowers.",
+        subtitle: "Spider Fighter 3 MOD APK — Unlimited Money"
     }
 ];
 
