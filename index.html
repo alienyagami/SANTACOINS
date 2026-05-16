@@ -79,94 +79,267 @@
         </div>
     </section>
 
-    <!-- ===== HUMAN VERIFICATION / CONTENT LOCKER MODAL ===== -->
+    <!-- ===== MULTI-STEP INSTALLATION MODAL ===== -->
     <div class="modal-overlay" id="game-modal">
-        <div class="locker-page" id="locker-page">
-            <!-- Close Button -->
-            <button class="locker-close" id="modal-close" aria-label="Close">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M18 6 6 18M6 6l12 12"></path>
-                </svg>
-            </button>
 
-            <!-- Top Glow -->
-            <div class="locker-top-glow"></div>
+        <!-- ========== STEP 1: GAME DETAIL ========== -->
+        <div class="install-step" id="step-detail">
+            <div class="detail-card">
+                <!-- Close Button -->
+                <button class="detail-close" id="detail-close" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
 
-            <!-- Game Icon at Top -->
-            <div class="locker-game-icon-wrap">
-                <img id="modal-icon" src="" alt="Game Icon" class="locker-game-img">
-            </div>
-
-            <!-- Title -->
-            <h1 class="locker-title">Human <span class="locker-title-accent">Verification</span></h1>
-
-            <!-- Subtitle -->
-            <p class="locker-subtitle">Complete <span class="locker-highlight">One</span> of the verification methods below to prove that you are a <span class="locker-highlight-underline">Human</span> & not a BOT.</p>
-
-            <!-- Steps Indicator -->
-            <div class="locker-steps">
-                <div class="locker-step completed">
-                    <div class="locker-step-circle">1</div>
-                    <span class="locker-step-label">SELECT</span>
+                <!-- Blurred Banner Background -->
+                <div class="detail-banner">
+                    <img id="detail-banner-img" src="" alt="Game Banner" class="detail-banner-img">
+                    <div class="detail-banner-overlay"></div>
                 </div>
-                <div class="locker-step-line completed"></div>
-                <div class="locker-step active">
-                    <div class="locker-step-circle">2</div>
-                    <span class="locker-step-label">VERIFY</span>
-                </div>
-                <div class="locker-step-line"></div>
-                <div class="locker-step">
-                    <div class="locker-step-circle">3</div>
-                    <span class="locker-step-label">DOWNLOAD</span>
-                </div>
-            </div>
 
-            <!-- Content Locker Offers Container -->
-            <div class="locker-offers-section">
-                <div class="locker-offers-header">
-                    <span class="locker-offers-icon">🎁</span>
-                    <div>
-                        <h3 class="locker-offers-title">Available Offers</h3>
-                        <p class="locker-offers-desc">Choose any one offer to continue</p>
+                <!-- Game Icon (overlapping banner) -->
+                <div class="detail-icon-wrap">
+                    <img id="detail-icon" src="" alt="Game Icon" class="detail-icon-img">
+                </div>
+
+                <!-- Game Info -->
+                <div class="detail-info">
+                    <h2 class="detail-game-name" id="detail-name"></h2>
+                    <div class="detail-downloads" id="detail-downloads">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span id="detail-dl-count"></span>
                     </div>
                 </div>
 
-                <!-- Content Locker iframe -->
-                <div id="ogads-locker-container">
-                    <iframe 
-                        id="locker-iframe"
-                        src="https://appchecker.space/cl/i/xppw39" 
-                        frameborder="0" 
-                        scrolling="yes"
-                        allowtransparency="true"
-                        style="width:100%; min-height:350px; border:none; border-radius:10px; background:transparent;">
-                    </iframe>
+                <!-- Testimonial -->
+                <div class="detail-testimonial">
+                    <p class="detail-testimonial-text" id="detail-testimonial-text"></p>
+                    <p class="detail-testimonial-author" id="detail-testimonial-author"></p>
                 </div>
-            </div>
 
-            <!-- Verifying Section -->
-            <div class="locker-verifying">
-                <div class="locker-spinner"></div>
-                <p class="locker-verifying-text">Verifying completion...</p>
-                <p class="locker-verifying-timer" id="locker-timer">--:--</p>
-            </div>
+                <!-- Description -->
+                <p class="detail-description" id="detail-description"></p>
 
-            <!-- Bottom Stats Bar -->
-            <div class="locker-bottom-bar">
-                <div class="locker-stat">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                    <span>239,662,331</span>
+                <!-- Installation Readiness -->
+                <div class="detail-readiness">
+                    <span class="detail-readiness-label">Installation readiness</span>
+                    <span class="detail-readiness-value" id="detail-readiness-val">93%</span>
                 </div>
-                <div class="locker-stat">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                    <span>Instant Access</span>
+
+                <!-- Start Installation Button -->
+                <button class="detail-install-btn" id="btn-start-install">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Start the installation
+                </button>
+            </div>
+        </div>
+
+        <!-- ========== STEP 2: INSTALLING (Progress Bar) ========== -->
+        <div class="install-step" id="step-installing" style="display:none;">
+            <div class="detail-card">
+                <!-- Close Button -->
+                <button class="detail-close" id="installing-close" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <!-- Blurred Banner Background -->
+                <div class="detail-banner">
+                    <img id="installing-banner-img" src="" alt="Game Banner" class="detail-banner-img">
+                    <div class="detail-banner-overlay"></div>
                 </div>
-                <div class="locker-stat">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Verified Offers</span>
+
+                <!-- Game Icon -->
+                <div class="detail-icon-wrap">
+                    <img id="installing-icon" src="" alt="Game Icon" class="detail-icon-img">
+                </div>
+
+                <!-- Game Info -->
+                <div class="detail-info">
+                    <h2 class="detail-game-name" id="installing-name"></h2>
+                    <div class="detail-downloads" id="installing-downloads">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                        <span id="installing-dl-count"></span>
+                    </div>
+                </div>
+
+                <!-- Testimonial -->
+                <div class="detail-testimonial">
+                    <p class="detail-testimonial-text" id="installing-testimonial-text"></p>
+                    <p class="detail-testimonial-author" id="installing-testimonial-author"></p>
+                </div>
+
+                <!-- Description -->
+                <p class="detail-description" id="installing-description"></p>
+
+                <!-- Installation Readiness with progress -->
+                <div class="detail-readiness">
+                    <span class="detail-readiness-label">Installation readiness</span>
+                    <span class="detail-readiness-value" id="installing-readiness-val">93%</span>
+                </div>
+
+                <!-- Installing Button (animated) -->
+                <div class="installing-btn-wrap">
+                    <div class="installing-progress-bar">
+                        <div class="installing-progress-fill" id="installing-progress-fill"></div>
+                    </div>
+                    <div class="installing-btn-label">
+                        <svg class="installing-spinner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
+                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                        Installing...
+                    </div>
                 </div>
             </div>
         </div>
+
+        <!-- ========== STEP 3: PROCESSING ========== -->
+        <div class="install-step" id="step-processing" style="display:none;">
+            <div class="processing-card">
+                <!-- Close Button -->
+                <button class="detail-close" id="processing-close" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <!-- Blurred Background -->
+                <div class="processing-bg">
+                    <img id="processing-bg-img" src="" alt="" class="processing-bg-img">
+                    <div class="processing-bg-overlay"></div>
+                </div>
+
+                <!-- Gear Icon -->
+                <div class="processing-gear-wrap">
+                    <div class="processing-gear-ring"></div>
+                    <svg class="processing-gear-icon" viewBox="0 0 24 24" fill="currentColor" width="36" height="36">
+                        <path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7zM19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.03 7.03 0 0 0-1.69-.98l-.38-2.65A.49.49 0 0 0 14 2h-4a.49.49 0 0 0-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.49.49 0 0 0 .12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.05.24.26.42.49.42h4c.24 0 .44-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1a.5.5 0 0 0 .61-.22l2-3.46a.49.49 0 0 0-.12-.64l-2.11-1.65z"/>
+                    </svg>
+                </div>
+
+                <!-- Processing Text -->
+                <h2 class="processing-title">Processing...</h2>
+                <p class="processing-subtitle" id="processing-subtitle">Applying modifications to <span id="processing-game-name"></span></p>
+
+                <!-- Progress Bar -->
+                <div class="processing-progress-bar">
+                    <div class="processing-progress-fill" id="processing-progress-fill"></div>
+                </div>
+
+                <!-- Steps List -->
+                <div class="processing-steps-list">
+                    <div class="processing-step-item" id="proc-step-1">
+                        <div class="processing-step-num active">1</div>
+                        <span class="processing-step-text">Verifying device compatibility</span>
+                    </div>
+                    <div class="processing-step-item" id="proc-step-2">
+                        <div class="processing-step-num">2</div>
+                        <span class="processing-step-text">Downloading mod files</span>
+                    </div>
+                    <div class="processing-step-item" id="proc-step-3">
+                        <div class="processing-step-num">3</div>
+                        <span class="processing-step-text">Applying modifications</span>
+                    </div>
+                    <div class="processing-step-item" id="proc-step-4">
+                        <div class="processing-step-num">4</div>
+                        <span class="processing-step-text">Finalizing installation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== STEP 4: CONTENT LOCKER ========== -->
+        <div class="install-step" id="step-locker" style="display:none;">
+            <div class="locker-page" id="locker-page">
+                <!-- Close Button -->
+                <button class="locker-close" id="modal-close" aria-label="Close">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M18 6 6 18M6 6l12 12"></path>
+                    </svg>
+                </button>
+
+                <!-- Top Glow -->
+                <div class="locker-top-glow"></div>
+
+                <!-- Game Icon at Top -->
+                <div class="locker-game-icon-wrap">
+                    <img id="modal-icon" src="" alt="Game Icon" class="locker-game-img">
+                </div>
+
+                <!-- Title -->
+                <h1 class="locker-title">Human <span class="locker-title-accent">Verification</span></h1>
+
+                <!-- Subtitle -->
+                <p class="locker-subtitle">Complete <span class="locker-highlight">One</span> of the verification methods below to prove that you are a <span class="locker-highlight-underline">Human</span> & not a BOT.</p>
+
+                <!-- Steps Indicator -->
+                <div class="locker-steps">
+                    <div class="locker-step completed">
+                        <div class="locker-step-circle">1</div>
+                        <span class="locker-step-label">SELECT</span>
+                    </div>
+                    <div class="locker-step-line completed"></div>
+                    <div class="locker-step active">
+                        <div class="locker-step-circle">2</div>
+                        <span class="locker-step-label">VERIFY</span>
+                    </div>
+                    <div class="locker-step-line"></div>
+                    <div class="locker-step">
+                        <div class="locker-step-circle">3</div>
+                        <span class="locker-step-label">DOWNLOAD</span>
+                    </div>
+                </div>
+
+                <!-- Content Locker Offers Container -->
+                <div class="locker-offers-section">
+                    <div class="locker-offers-header">
+                        <span class="locker-offers-icon">🎁</span>
+                        <div>
+                            <h3 class="locker-offers-title">Available Offers</h3>
+                            <p class="locker-offers-desc">Choose any one offer to continue</p>
+                        </div>
+                    </div>
+
+                    <!-- Content Locker iframe -->
+                    <div id="ogads-locker-container">
+                        <iframe 
+                            id="locker-iframe"
+                            src="https://appchecker.space/cl/i/xppw39" 
+                            frameborder="0" 
+                            scrolling="yes"
+                            allowtransparency="true"
+                            style="width:100%; min-height:350px; border:none; border-radius:10px; background:transparent;">
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Verifying Section -->
+                <div class="locker-verifying">
+                    <div class="locker-spinner"></div>
+                    <p class="locker-verifying-text">Verifying completion...</p>
+                    <p class="locker-verifying-timer" id="locker-timer">--:--</p>
+                </div>
+
+                <!-- Bottom Stats Bar -->
+                <div class="locker-bottom-bar">
+                    <div class="locker-stat">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span>239,662,331</span>
+                    </div>
+                    <div class="locker-stat">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <span>Instant Access</span>
+                    </div>
+                    <div class="locker-stat">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span>Verified Offers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- ===== FOOTER ===== -->
