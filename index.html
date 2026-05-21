@@ -1,355 +1,1685 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Download the best mobile games for Android and iPhone. Get GTA V, Fortnite, Hitman 3, Ghost of Tsushima and more popular games on your mobile device.">
-    <title>Mobile Games Hub - Download Top Games for Android & iOS</title>
+    <title>SANTA COINS — Free Game Coins & Gems</title>
+    <meta name="description"
+        content="Claim free coins, gems, V-Bucks, Robux and more for your favorite games. Limited time offers on SANTA COINS.">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { outfit: ['Outfit', 'sans-serif'] },
+                    colors: {
+                        primary: '#6C3CE0',
+                        accent: '#FF6B35',
+                        dark: { 900: '#07071A', 800: '#0E0E28', 700: '#161640', 600: '#1E1E55' },
+                        neon: { blue: '#00D4FF', pink: '#FF2D95', green: '#00FF88', yellow: '#FFD700' }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #07071A;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-grid {
+            background-image:
+                radial-gradient(circle at 1px 1px, rgba(108, 60, 224, 0.1) 1px, transparent 0),
+                radial-gradient(ellipse at 50% 0%, rgba(108, 60, 224, 0.08) 0%, transparent 60%);
+            background-size: 40px 40px, 100% 100%;
+        }
+
+        .hero-glow {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(108, 60, 224, 0.25) 0%, rgba(0, 212, 255, 0.08) 40%, transparent 70%);
+            top: -250px;
+            left: 50%;
+            transform: translateX(-50%);
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(40px);
+        }
+
+        .hero-glow-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+            bottom: -150px;
+            right: -150px;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(30px);
+        }
+
+        /* Floating coins animation */
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+        }
+
+        @keyframes floatReverse {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(20px) rotate(-10deg);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(108, 60, 224, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(108, 60, 224, 0.8);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes counter-pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes progress-glow {
+            0% {
+                box-shadow: 0 0 5px #6C3CE0;
+            }
+
+            50% {
+                box-shadow: 0 0 25px #6C3CE0, 0 0 50px rgba(108, 60, 224, 0.4);
+            }
+
+            100% {
+                box-shadow: 0 0 5px #6C3CE0;
+            }
+        }
+
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes spin-slow {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes glow-ring {
+
+            0%,
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0.3);
+                opacity: 0;
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            70% {
+                transform: scale(0.9);
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes particle-float {
+            0% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-60px) translateX(30px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        @keyframes badge-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 8px rgba(0, 255, 136, 0);
+            }
+        }
+
+        .float-1 {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .float-2 {
+            animation: floatReverse 5s ease-in-out infinite 0.5s;
+        }
+
+        .float-3 {
+            animation: float 6s ease-in-out infinite 1s;
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #FFD700 0%, #FFF 25%, #FFD700 50%, #FFF 75%, #FFD700 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
+        }
+
+        /* ===== GAME CARD STYLES ===== */
+        .game-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1 / 1;
+            border: 2px solid rgba(108, 60, 224, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+        }
+
+        .game-card .card-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .game-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 30%, rgba(0, 0, 0, 0.9) 100%);
+            z-index: 1;
+            pointer-events: none;
+            transition: all 0.4s;
+        }
+
+        .game-card:hover {
+            transform: translateY(-8px) scale(1.04);
+            border-color: rgba(108, 60, 224, 0.6);
+            box-shadow: 0 16px 48px rgba(108, 60, 224, 0.3), 0 0 0 1px rgba(108, 60, 224, 0.2);
+        }
+
+        .game-card:hover .card-bg {
+            transform: scale(1.15);
+        }
+
+        .game-card:hover::after {
+            background: linear-gradient(180deg, rgba(108, 60, 224, 0.1) 0%, rgba(0, 0, 0, 0.95) 100%);
+        }
+
+        .game-card .card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 16px;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .game-card .card-name {
+            font-weight: 800;
+            font-size: 0.95rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        .game-card .card-subtitle {
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .game-card .card-subtitle .free-label {
+            color: #00FF88;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            letter-spacing: 0.5px;
+        }
+
+        .game-card .card-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(8px);
+        }
+
+        .game-card .card-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 3;
+            background: rgba(0, 255, 136, 0.15);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            backdrop-filter: blur(10px);
+            color: #00FF88;
+            font-size: 0.6rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            animation: badge-pulse 2s infinite;
+        }
+
+        .claim-btn {
+            background: linear-gradient(135deg, #6C3CE0, #8B5CF6, #6C3CE0);
+            background-size: 200% 200%;
+            border: none;
+            border-radius: 14px;
+            padding: 14px 28px;
+            color: #fff;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            animation: shimmer 3s ease infinite;
+        }
+
+        .claim-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .claim-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 30px rgba(108, 60, 224, 0.5);
+        }
+
+        .claim-btn:hover::after {
+            left: 100%;
+        }
+
+        .price-tag {
+            text-decoration: line-through;
+            color: #ef4444;
+            font-weight: 700;
+        }
+
+        .free-tag {
+            background: linear-gradient(135deg, #00FF88, #00CC6A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+
+        /* ===== POPUP STYLES ===== */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(12px);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .popup-overlay.active {
+            display: flex;
+        }
+
+        .popup-box {
+            background: linear-gradient(160deg, #151538, #0E0E28, #0A0A20);
+            border: 1px solid rgba(108, 60, 224, 0.3);
+            border-radius: 28px;
+            padding: 0;
+            max-width: 440px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            animation: bounce-in 0.5s ease-out;
+        }
+
+        .popup-box::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: conic-gradient(from 0deg, #6C3CE0, #00D4FF, #FF6B35, #FF2D95, #6C3CE0);
+            border-radius: 28px;
+            z-index: -1;
+            animation: spin-slow 6s linear infinite;
+            opacity: 0.6;
+        }
+
+        .popup-header {
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .popup-header .game-artwork {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .popup-header .artwork-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 20%, #151538 100%);
+        }
+
+        .popup-header .game-icon-popup {
+            position: absolute;
+            bottom: -24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            border: 3px solid #151538;
+            z-index: 2;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-body {
+            padding: 40px 32px 32px;
+        }
+
+        .popup-game-name {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 4px;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            background: rgba(10, 10, 26, 0.9);
+            border-radius: 14px;
+            height: 14px;
+            overflow: hidden;
+            margin: 20px 0;
+            border: 1px solid rgba(108, 60, 224, 0.2);
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0%;
+            border-radius: 14px;
+            background: linear-gradient(90deg, #6C3CE0, #8B5CF6, #00D4FF);
+            transition: width 0.3s ease;
+            animation: progress-glow 2s infinite;
+            position: relative;
+        }
+
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 1.5s linear infinite;
+        }
+
+        .counter-text {
+            font-size: 3.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: counter-pulse 1s ease-in-out infinite;
+            text-shadow: none;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.3));
+        }
+
+        /* Dynamic coin grid */
+        .coin-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 6px;
+            margin: 16px auto;
+            max-width: 220px;
+        }
+
+        .coin-emoji {
+            font-size: 1.5rem;
+            animation: float 2s ease-in-out infinite;
+            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+        }
+
+        .coin-emoji:nth-child(2) {
+            animation-delay: 0.15s;
+        }
+
+        .coin-emoji:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .coin-emoji:nth-child(4) {
+            animation-delay: 0.45s;
+        }
+
+        .coin-emoji:nth-child(5) {
+            animation-delay: 0.6s;
+        }
+
+        .coin-emoji:nth-child(6) {
+            animation-delay: 0.75s;
+        }
+
+        .coin-emoji:nth-child(7) {
+            animation-delay: 0.9s;
+        }
+
+        .coin-emoji:nth-child(8) {
+            animation-delay: 1.05s;
+        }
+
+        .coin-emoji:nth-child(9) {
+            animation-delay: 1.2s;
+        }
+
+        .coin-emoji:nth-child(10) {
+            animation-delay: 1.35s;
+        }
+
+        /* Reward info in popup */
+        .reward-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0;
+            padding: 12px 20px;
+            background: rgba(108, 60, 224, 0.08);
+            border: 1px solid rgba(108, 60, 224, 0.15);
+            border-radius: 14px;
+        }
+
+        .reward-info .amount {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .reward-info .divider {
+            width: 1px;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .reward-info .value {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .reward-info .value .price {
+            text-decoration: line-through;
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        .reward-info .value .free {
+            color: #00FF88;
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        /* Time estimate */
+        .time-estimate {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Confetti */
+        .confetti-piece {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            z-index: 10000;
+            animation: confetti-fall 3s linear forwards;
+        }
+
+        /* Floating particles in popup */
+        .popup-particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: particle-float 3s ease-out infinite;
+        }
+
+        /* Stats bar */
+        .stats-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 14px 0;
+            border-top: 1px solid rgba(108, 60, 224, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .stat-item .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #00FF88;
+            animation: badge-pulse 2s infinite;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #07071A;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #6C3CE0;
+            border-radius: 3px;
+        }
+
+        /* How it works cards */
+        .step-card {
+            position: relative;
+            padding: 32px;
+            border-radius: 24px;
+            background: linear-gradient(145deg, rgba(14, 14, 40, 0.6), rgba(7, 7, 26, 0.8));
+            border: 1px solid rgba(108, 60, 224, 0.1);
+            transition: all 0.4s;
+            overflow: hidden;
+        }
+
+        .step-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #6C3CE0, transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .step-card:hover {
+            border-color: rgba(108, 60, 224, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(108, 60, 224, 0.1);
+        }
+
+        .step-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Featured game card (first 2) */
+        .game-card.featured {
+            grid-column: span 2;
+            aspect-ratio: 2 / 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .popup-box {
+                margin: 10px;
+                max-width: 360px;
+            }
+
+            .popup-body {
+                padding: 32px 20px 24px;
+            }
+
+            .popup-header .game-artwork {
+                height: 120px;
+            }
+
+            .counter-text {
+                font-size: 2.5rem;
+            }
+
+            .hero-glow {
+                width: 300px;
+                height: 300px;
+            }
+
+            .game-card .card-name {
+                font-size: 0.78rem;
+            }
+
+            .game-card .card-subtitle {
+                display: none;
+            }
+
+            .game-card .card-icon {
+                width: 26px;
+                height: 26px;
+                font-size: 0.8rem;
+            }
+
+            .game-card .card-content {
+                padding: 10px;
+            }
+
+            .game-card.featured {
+                grid-column: span 1;
+                aspect-ratio: 1 / 1;
+            }
+
+            .reward-info {
+                flex-direction: column;
+                gap: 8px;
+                padding: 10px 16px;
+            }
+
+            .reward-info .divider {
+                width: 40px;
+                height: 1px;
+            }
+
+            .coin-grid {
+                max-width: 180px;
+            }
+
+            .coin-emoji {
+                font-size: 1.2rem;
+            }
+
+            .stats-bar {
+                gap: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-card .card-badge {
+                font-size: 0.5rem;
+                padding: 2px 6px;
+            }
+        }
+
+        /* ===== REDEEM CODE FORM STYLES ===== */
+        .redeem-form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 20px 0;
+        }
+
+        .redeem-input-group {
+            position: relative;
+        }
+
+        .redeem-input-group label {
+            display: block;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 6px;
+        }
+
+        .redeem-input {
+            width: 100%;
+            padding: 14px 18px;
+            background: rgba(10, 10, 30, 0.8);
+            border: 2px solid rgba(108, 60, 224, 0.25);
+            border-radius: 14px;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .redeem-input::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+            font-weight: 400;
+        }
+
+        .redeem-input:focus {
+            border-color: #6C3CE0;
+            box-shadow: 0 0 20px rgba(108, 60, 224, 0.2);
+        }
+
+        .redeem-input.input-error {
+            border-color: #ef4444;
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
+            animation: shake 0.4s ease;
+        }
+
+        .redeem-input.input-success {
+            border-color: #00FF88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+        }
+
+        .redeem-submit-btn {
+            background: linear-gradient(135deg, #6C3CE0, #8B5CF6);
+            border: none;
+            border-radius: 14px;
+            padding: 14px 28px;
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .redeem-submit-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 30px rgba(108, 60, 224, 0.4);
+        }
+
+        .redeem-submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        .redeem-submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .redeem-message {
+            font-size: 0.85rem;
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 12px;
+            text-align: center;
+            display: none;
+            animation: bounce-in 0.4s ease;
+        }
+
+        .redeem-message.error {
+            display: block;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #ef4444;
+        }
+
+        .redeem-message.success {
+            display: block;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: #00FF88;
+        }
+
+        @keyframes shake {
+
+            0%,
+            100% {
+                transform: translateX(0);
+            }
+
+            20% {
+                transform: translateX(-8px);
+            }
+
+            40% {
+                transform: translateX(8px);
+            }
+
+            60% {
+                transform: translateX(-4px);
+            }
+
+            80% {
+                transform: translateX(4px);
+            }
+        }
+    </style>
 </head>
-<body>
 
-    <!-- ===== HEADER / NAVBAR ===== -->
-    <header id="main-header">
-        <div class="header-inner">
-            <div class="logo" id="site-logo">
-                <span class="logo-icon">🎮</span>
-                <span class="logo-text">Game<span class="logo-accent">Zone</span></span>
+<body class="bg-grid">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 bg-dark-900/80 backdrop-blur-xl border-b border-purple-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <img src="images/logo.png" alt="Santa Coins" class="w-11 h-11 rounded-xl object-cover">
+                <span class="text-2xl font-black tracking-tight">
+                    <span class="text-white">SANTA</span>
+                    <span class="shimmer-text"> COINS</span>
+                </span>
             </div>
-            <nav id="main-nav">
-                <a href="#trending" class="nav-link active">Trending</a>
-                <a href="#all-games" class="nav-link">All Games</a>
-            </nav>
-            <div class="header-badge">
-                <span class="badge-dot"></span>
-                <span>37 Games Available</span>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#games" class="hover:text-white transition-colors">Games</a>
+                <a href="#how-it-works" class="hover:text-white transition-colors">How It Works</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+            </div>
+            <div class="flex items-center gap-2 bg-dark-700 rounded-full px-4 py-2 border border-purple-500/20">
+                <span class="w-2 h-2 rounded-full bg-neon-green animate-pulse"></span>
+                <span class="text-xs font-semibold text-neon-green">LIVE OFFERS</span>
             </div>
         </div>
-    </header>
+    </nav>
 
+    <!-- Games Section -->
+    <section id="games" class="py-20 pt-36 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <span
+                    class="inline-block bg-primary/10 text-primary px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-primary/20">
+                    🎮 POPULAR GAMES
+                </span>
+                <h2 class="text-4xl sm:text-5xl font-black mb-4">Choose Your Game</h2>
+                <p class="text-gray-400 max-w-xl mx-auto">Select any game below to claim your free coins, gems, or
+                    in-game currency. Offers are limited!</p>
+            </div>
 
+            <!-- Games Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4" id="gamesGrid">
+                <!-- Cards injected by JS -->
+            </div>
+        </div>
+    </section>
 
-    <!-- ===== TRENDING GAMES ===== -->
-    <section id="trending">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-title-group">
-                    <span class="section-bar"></span>
-                    <h2 id="trending-title">TRENDING GAMES</h2>
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center justify-center pt-24 pb-16 overflow-hidden">
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+
+        <!-- Floating coins -->
+        <div class="absolute top-48 right-16 text-4xl float-2 opacity-50">💎</div>
+        <div class="absolute bottom-32 left-20 text-3xl float-3 opacity-40">⭐</div>
+        <div class="absolute top-60 left-1/4 text-3xl float-2 opacity-30">🔮</div>
+
+        <div class="relative z-10 text-center max-w-4xl mx-auto px-4">
+            <div
+                class="inline-flex items-center gap-2 bg-dark-700/60 rounded-full px-5 py-2 border border-purple-500/20 mb-8">
+                <span class="text-xs">🔥</span>
+                <span class="text-sm font-semibold text-purple-300">LIMITED TIME — February 2026 Special</span>
+            </div>
+
+            <h1 class="text-5xl sm:text-6xl md:text-7xl font-black leading-tight mb-6">
+                Get <span class="shimmer-text">FREE</span> Game<br>
+                <span class="bg-gradient-to-r from-primary to-neon-blue bg-clip-text text-transparent">Coins &
+                    Gems</span>
+            </h1>
+
+            <p class="text-lg sm:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                Unlock premium in-game currencies for the most popular games in the US.
+                <span class="text-white font-semibold">100% Free</span> — No credit card needed.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+                <a href="#games"
+                    class="claim-btn inline-flex items-center justify-center gap-2 !w-auto !px-8 !py-4 text-lg">
+                    <span>🎮</span> Browse All Games
+                </a>
+                <div class="flex items-center gap-3 text-sm text-gray-500">
+                    <div class="flex -space-x-2">
+                        <div
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 border-2 border-dark-900 flex items-center justify-center text-xs">
+                            👤</div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 border-2 border-dark-900 flex items-center justify-center text-xs">
+                            👤</div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-gradient-to-br from-green-500 to-emerald-500 border-2 border-dark-900 flex items-center justify-center text-xs">
+                            👤</div>
+                    </div>
+                    <span>12,847 claimed today</span>
                 </div>
             </div>
-            <div class="trending-wrapper">
-                <div class="trending-scroll" id="trending-scroll">
-                    <!-- Trending cards will be injected by JS -->
+
+            <!-- Trust badges -->
+            <div class="flex flex-wrap items-center justify-center gap-6 text-xs text-gray-500">
+                <div class="flex items-center gap-2"><span class="text-neon-green">✓</span> Instant Delivery</div>
+                <div class="flex items-center gap-2"><span class="text-neon-green">✓</span> No Ban Risk</div>
+                <div class="flex items-center gap-2"><span class="text-neon-green">✓</span> 24/7 Available</div>
+                <div class="flex items-center gap-2"><span class="text-neon-green">✓</span> All Platforms</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-20 relative">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span
+                class="inline-block bg-accent/10 text-accent px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-accent/20">
+                📋 HOW IT WORKS
+            </span>
+            <h2 class="text-4xl sm:text-5xl font-black mb-16">3 Simple Steps</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="step-card group">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/50 flex items-center justify-center text-2xl mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        🎯
+                    </div>
+                    <div
+                        class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center text-sm font-bold">
+                        1</div>
+                    <h3 class="text-xl font-bold mb-3">Pick Your Game</h3>
+                    <p class="text-gray-400 text-sm">Browse our collection and select the game you want coins for.</p>
                 </div>
-                <div class="scroll-hint" id="scroll-hint">
-                    <span class="scroll-hint-text">Scroll for more</span>
-                    <svg class="scroll-hint-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+
+                <div class="step-card group">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-accent to-accent/50 flex items-center justify-center text-2xl mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        ✅
+                    </div>
+                    <div
+                        class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-sm font-bold">
+                        2</div>
+                    <h3 class="text-xl font-bold mb-3">Complete Verification</h3>
+                    <p class="text-gray-400 text-sm">Finish a quick verification to confirm you're a real player.</p>
+                </div>
+
+                <div class="step-card group">
+                    <div
+                        class="w-16 h-16 rounded-2xl bg-gradient-to-br from-neon-green to-neon-green/50 flex items-center justify-center text-2xl mb-6 mx-auto group-hover:scale-110 transition-transform">
+                        🎁
+                    </div>
+                    <div
+                        class="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-neon-green text-dark-900 flex items-center justify-center text-sm font-bold">
+                        3</div>
+                    <h3 class="text-xl font-bold mb-3">Receive Your Coins</h3>
+                    <p class="text-gray-400 text-sm">Your free coins or gems are delivered instantly to your account!
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== ALL GAMES ===== -->
-    <section id="all-games">
-        <div class="section-container">
-            <div class="section-header">
-                <div class="section-title-group">
-                    <span class="section-bar"></span>
-                    <h2 id="all-games-title">ALL GAMES</h2>
-                </div>
-                <div class="search-box" id="search-box">
-                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="m21 21-4.3-4.3"></path>
-                    </svg>
-                    <input type="text" id="search-input" placeholder="Search a Game..." autocomplete="off">
-                </div>
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="inline-block bg-neon-blue/10 text-neon-blue px-4 py-1.5 rounded-full text-sm font-semibold mb-4 border border-neon-blue/20">
+                    ❓ FAQ
+                </span>
+                <h2 class="text-4xl font-black">Frequently Asked Questions</h2>
             </div>
-            <div class="games-grid" id="games-grid">
-                <!-- Game cards will be injected by JS -->
-            </div>
-            <div class="no-results" id="no-results" style="display:none;">
-                <span class="no-results-icon">🔍</span>
-                <p>No games found matching your search.</p>
+
+            <div class="space-y-4">
+                <div class="bg-dark-800/50 border border-purple-500/10 rounded-2xl p-6 cursor-pointer group hover:border-purple-500/30 transition-all"
+                    onclick="this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-45')">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">Is this really free?</h3>
+                        <span class="faq-icon text-primary text-2xl transition-transform">+</span>
+                    </div>
+                    <p class="faq-answer hidden mt-4 text-gray-400 text-sm leading-relaxed">Yes! All coins and gems are
+                        100% free. You just need to complete a quick verification step to prove you're a real human. No
+                        credit card or payment is ever required.</p>
+                </div>
+
+                <div class="bg-dark-800/50 border border-purple-500/10 rounded-2xl p-6 cursor-pointer group hover:border-purple-500/30 transition-all"
+                    onclick="this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-45')">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">Will I get banned for using this?</h3>
+                        <span class="faq-icon text-primary text-2xl transition-transform">+</span>
+                    </div>
+                    <p class="faq-answer hidden mt-4 text-gray-400 text-sm leading-relaxed">Absolutely not. Our method
+                        is completely safe and uses official promotional channels. Your account will never be at risk.
+                    </p>
+                </div>
+
+                <div class="bg-dark-800/50 border border-purple-500/10 rounded-2xl p-6 cursor-pointer group hover:border-purple-500/30 transition-all"
+                    onclick="this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-45')">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">How long does delivery take?</h3>
+                        <span class="faq-icon text-primary text-2xl transition-transform">+</span>
+                    </div>
+                    <p class="faq-answer hidden mt-4 text-gray-400 text-sm leading-relaxed">Delivery is instant! Once
+                        you complete the verification, your coins/gems will be added to your account within minutes.</p>
+                </div>
+
+                <div class="bg-dark-800/50 border border-purple-500/10 rounded-2xl p-6 cursor-pointer group hover:border-purple-500/30 transition-all"
+                    onclick="this.querySelector('.faq-answer').classList.toggle('hidden'); this.querySelector('.faq-icon').classList.toggle('rotate-45')">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold text-lg">Which platforms are supported?</h3>
+                        <span class="faq-icon text-primary text-2xl transition-transform">+</span>
+                    </div>
+                    <p class="faq-answer hidden mt-4 text-gray-400 text-sm leading-relaxed">We support all platforms
+                        including iOS, Android, PC, PlayStation, Xbox, and Nintendo Switch. Your coins work regardless
+                        of your platform.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ===== MULTI-STEP INSTALLATION MODAL ===== -->
-    <div class="modal-overlay" id="game-modal">
-
-        <!-- ========== STEP 1: GAME DETAIL ========== -->
-        <div class="install-step" id="step-detail">
-            <div class="detail-card">
-                <!-- Close Button -->
-                <button class="detail-close" id="detail-close" aria-label="Close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M18 6 6 18M6 6l12 12"></path>
-                    </svg>
-                </button>
-
-                <!-- Blurred Banner Background -->
-                <div class="detail-banner">
-                    <img id="detail-banner-img" src="" alt="Game Banner" class="detail-banner-img">
-                    <div class="detail-banner-overlay"></div>
-                </div>
-
-                <!-- Game Icon (overlapping banner) -->
-                <div class="detail-icon-wrap">
-                    <img id="detail-icon" src="" alt="Game Icon" class="detail-icon-img">
-                </div>
-
-                <!-- Game Info -->
-                <div class="detail-info">
-                    <h2 class="detail-game-name" id="detail-name"></h2>
-                    <div class="detail-downloads" id="detail-downloads">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        <span id="detail-dl-count"></span>
-                    </div>
-                </div>
-
-                <!-- Testimonial -->
-                <div class="detail-testimonial">
-                    <p class="detail-testimonial-text" id="detail-testimonial-text"></p>
-                    <p class="detail-testimonial-author" id="detail-testimonial-author"></p>
-                </div>
-
-                <!-- Description -->
-                <p class="detail-description" id="detail-description"></p>
-
-                <!-- Installation Readiness -->
-                <div class="detail-readiness">
-                    <span class="detail-readiness-label">Installation readiness</span>
-                    <span class="detail-readiness-value" id="detail-readiness-val">93%</span>
-                </div>
-
-                <!-- Start Installation Button -->
-                <button class="detail-install-btn" id="btn-start-install">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                    Start the installation
-                </button>
+    <!-- Footer -->
+    <footer class="py-12 border-t border-purple-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <img src="images/logo.png" alt="Santa Coins" class="w-9 h-9 rounded-lg object-cover">
+                <span class="text-xl font-black"><span class="text-white">SANTA</span><span class="shimmer-text">
+                        COINS</span></span>
             </div>
-        </div>
-
-        <!-- ========== STEP 2: INSTALLING (Progress Bar) ========== -->
-        <div class="install-step" id="step-installing" style="display:none;">
-            <div class="detail-card">
-                <!-- Close Button -->
-                <button class="detail-close" id="installing-close" aria-label="Close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M18 6 6 18M6 6l12 12"></path>
-                    </svg>
-                </button>
-
-                <!-- Blurred Banner Background -->
-                <div class="detail-banner">
-                    <img id="installing-banner-img" src="" alt="Game Banner" class="detail-banner-img">
-                    <div class="detail-banner-overlay"></div>
-                </div>
-
-                <!-- Game Icon -->
-                <div class="detail-icon-wrap">
-                    <img id="installing-icon" src="" alt="Game Icon" class="detail-icon-img">
-                </div>
-
-                <!-- Game Info -->
-                <div class="detail-info">
-                    <h2 class="detail-game-name" id="installing-name"></h2>
-                    <div class="detail-downloads" id="installing-downloads">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-                        <span id="installing-dl-count"></span>
-                    </div>
-                </div>
-
-                <!-- Testimonial -->
-                <div class="detail-testimonial">
-                    <p class="detail-testimonial-text" id="installing-testimonial-text"></p>
-                    <p class="detail-testimonial-author" id="installing-testimonial-author"></p>
-                </div>
-
-                <!-- Description -->
-                <p class="detail-description" id="installing-description"></p>
-
-                <!-- Installation Readiness with progress -->
-                <div class="detail-readiness">
-                    <span class="detail-readiness-label">Installation readiness</span>
-                    <span class="detail-readiness-value" id="installing-readiness-val">93%</span>
-                </div>
-
-                <!-- Installing Button (animated) -->
-                <div class="installing-btn-wrap">
-                    <div class="installing-progress-bar">
-                        <div class="installing-progress-fill" id="installing-progress-fill"></div>
-                    </div>
-                    <div class="installing-btn-label">
-                        <svg class="installing-spinner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18">
-                            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                        </svg>
-                        Installing...
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========== STEP 3: PROCESSING ========== -->
-        <div class="install-step" id="step-processing" style="display:none;">
-            <div class="processing-card">
-                <!-- Close Button -->
-                <button class="detail-close" id="processing-close" aria-label="Close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M18 6 6 18M6 6l12 12"></path>
-                    </svg>
-                </button>
-
-                <!-- Blurred Background -->
-                <div class="processing-bg">
-                    <img id="processing-bg-img" src="" alt="" class="processing-bg-img">
-                    <div class="processing-bg-overlay"></div>
-                </div>
-
-                <!-- Gear Icon -->
-                <div class="processing-gear-wrap">
-                    <div class="processing-gear-ring"></div>
-                    <svg class="processing-gear-icon" viewBox="0 0 24 24" fill="currentColor" width="36" height="36">
-                        <path d="M12 15.5A3.5 3.5 0 1 0 12 8.5a3.5 3.5 0 0 0 0 7zM19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65a.5.5 0 0 0 .12-.64l-2-3.46a.5.5 0 0 0-.61-.22l-2.49 1a7.03 7.03 0 0 0-1.69-.98l-.38-2.65A.49.49 0 0 0 14 2h-4a.49.49 0 0 0-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1a.5.5 0 0 0-.61.22l-2 3.46a.49.49 0 0 0 .12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65a.5.5 0 0 0-.12.64l2 3.46a.5.5 0 0 0 .61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.05.24.26.42.49.42h4c.24 0 .44-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1a.5.5 0 0 0 .61-.22l2-3.46a.49.49 0 0 0-.12-.64l-2.11-1.65z"/>
-                    </svg>
-                </div>
-
-                <!-- Processing Text -->
-                <h2 class="processing-title">Processing...</h2>
-                <p class="processing-subtitle" id="processing-subtitle">Applying modifications to <span id="processing-game-name"></span></p>
-
-                <!-- Progress Bar -->
-                <div class="processing-progress-bar">
-                    <div class="processing-progress-fill" id="processing-progress-fill"></div>
-                </div>
-
-                <!-- Steps List -->
-                <div class="processing-steps-list">
-                    <div class="processing-step-item" id="proc-step-1">
-                        <div class="processing-step-num active">1</div>
-                        <span class="processing-step-text">Verifying device compatibility</span>
-                    </div>
-                    <div class="processing-step-item" id="proc-step-2">
-                        <div class="processing-step-num">2</div>
-                        <span class="processing-step-text">Downloading mod files</span>
-                    </div>
-                    <div class="processing-step-item" id="proc-step-3">
-                        <div class="processing-step-num">3</div>
-                        <span class="processing-step-text">Applying modifications</span>
-                    </div>
-                    <div class="processing-step-item" id="proc-step-4">
-                        <div class="processing-step-num">4</div>
-                        <span class="processing-step-text">Finalizing installation</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ========== STEP 4: CONTENT LOCKER ========== -->
-        <div class="install-step" id="step-locker" style="display:none;">
-            <div class="locker-page" id="locker-page">
-                <!-- Close Button -->
-                <button class="locker-close" id="modal-close" aria-label="Close">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <path d="M18 6 6 18M6 6l12 12"></path>
-                    </svg>
-                </button>
-
-                <!-- Top Glow -->
-                <div class="locker-top-glow"></div>
-
-                <!-- Game Icon at Top -->
-                <div class="locker-game-icon-wrap">
-                    <img id="modal-icon" src="" alt="Game Icon" class="locker-game-img">
-                </div>
-
-                <!-- Title -->
-                <h1 class="locker-title">Human <span class="locker-title-accent">Verification</span></h1>
-
-                <!-- Subtitle -->
-                <p class="locker-subtitle">Complete <span class="locker-highlight">One</span> of the verification methods below to prove that you are a <span class="locker-highlight-underline">Human</span> & not a BOT.</p>
-
-                <!-- Steps Indicator -->
-                <div class="locker-steps">
-                    <div class="locker-step completed">
-                        <div class="locker-step-circle">1</div>
-                        <span class="locker-step-label">SELECT</span>
-                    </div>
-                    <div class="locker-step-line completed"></div>
-                    <div class="locker-step active">
-                        <div class="locker-step-circle">2</div>
-                        <span class="locker-step-label">VERIFY</span>
-                    </div>
-                    <div class="locker-step-line"></div>
-                    <div class="locker-step">
-                        <div class="locker-step-circle">3</div>
-                        <span class="locker-step-label">DOWNLOAD</span>
-                    </div>
-                </div>
-
-                <!-- Content Locker Offers Container -->
-                <div class="locker-offers-section">
-                    <div class="locker-offers-header">
-                        <span class="locker-offers-icon">🎁</span>
-                        <div>
-                            <h3 class="locker-offers-title">Available Offers</h3>
-                            <p class="locker-offers-desc">Choose any one offer to continue</p>
-                        </div>
-                    </div>
-
-                    <!-- Content Locker iframe -->
-                    <div id="ogads-locker-container">
-                        <iframe 
-                            id="locker-iframe"
-                            src="https://appchecker.space/cl/i/xppw39" 
-                            frameborder="0" 
-                            scrolling="yes"
-                            allowtransparency="true"
-                            style="width:100%; min-height:350px; border:none; border-radius:10px; background:transparent;">
-                        </iframe>
-                    </div>
-                </div>
-
-                <!-- Verifying Section -->
-                <div class="locker-verifying">
-                    <div class="locker-spinner"></div>
-                    <p class="locker-verifying-text">Verifying completion...</p>
-                    <p class="locker-verifying-timer" id="locker-timer">--:--</p>
-                </div>
-
-                <!-- Bottom Stats Bar -->
-                <div class="locker-bottom-bar">
-                    <div class="locker-stat">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                        <span>239,662,331</span>
-                    </div>
-                    <div class="locker-stat">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-                        <span>Instant Access</span>
-                    </div>
-                    <div class="locker-stat">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="locker-stat-icon"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                        <span>Verified Offers</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-    <!-- ===== FOOTER ===== -->
-    <footer id="main-footer">
-        <div class="footer-inner">
-            <p>&copy; 2026 GameZone. All rights reserved.</p>
-            <p class="footer-disclaimer">All game trademarks belong to their respective owners.</p>
+            <p class="text-gray-500 text-sm mb-4">© 2026 SANTA COINS. All rights reserved.</p>
+            <p class="text-gray-600 text-xs max-w-md mx-auto">This site is not affiliated with any game developer or
+                publisher. All trademarks belong to their respective owners.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- POPUP OVERLAY -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-box" id="popupBox">
+            <!-- Stage 0: Redeem Code -->
+            <div id="stage-redeem">
+                <div class="popup-header">
+                    <img id="redeem-artwork" class="game-artwork" src="" alt="Game">
+                    <div class="artwork-overlay"></div>
+                    <div id="redeem-game-icon" class="game-icon-popup bg-gradient-to-br from-primary to-accent"></div>
+                </div>
+
+                <div class="popup-body">
+                    <div class="popup-game-name" id="redeem-game-title">GAME</div>
+                    <h3 class="text-xl font-black mb-1">Redeem Your <span id="redeem-coin-name">Coins</span></h3>
+                    <p class="text-gray-500 text-xs mb-4">Enter your username and redeem code to claim your reward</p>
+
+                    <div class="redeem-form">
+                        <div class="redeem-input-group">
+                            <label>Username</label>
+                            <input type="text" class="redeem-input" id="redeemUsername"
+                                placeholder="Enter your username..." autocomplete="off">
+                        </div>
+                        <div class="redeem-input-group">
+                            <label>Redeem Code : santa1010</label>
+                            <input type="text" class="redeem-input" id="redeemCode" placeholder="Enter Redeem Code ..."
+                                autocomplete="off">
+                        </div>
+                        <div class="redeem-message" id="redeemMessage"></div>
+                        <button class="redeem-submit-btn" id="redeemSubmitBtn" onclick="validateRedeemCode()">🔓 Redeem
+                            Now</button>
+                    </div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="dot"></div> 4,291 redeemed today
+                    </div>
+                    <div class="stat-item">🔒 Secure</div>
+                </div>
+            </div>
+
+            <!-- Stage 1: Charging -->
+            <div id="stage-charging" class="hidden">
+                <div class="popup-header">
+                    <img id="popup-artwork" class="game-artwork" src="" alt="Game">
+                    <div class="artwork-overlay"></div>
+                    <div id="popup-game-icon" class="game-icon-popup bg-gradient-to-br from-primary to-accent"></div>
+                </div>
+
+                <div class="popup-body">
+                    <div class="popup-game-name" id="popup-game-title">ROBLOX</div>
+                    <h3 class="text-xl font-black mb-1">Generating <span id="popup-coin-name">Coins</span></h3>
+                    <p class="text-gray-500 text-xs mb-4">Please wait while we prepare your reward...</p>
+
+                    <div id="popup-reward-info" class="reward-info">
+                        <div class="amount"><span id="popup-amount">10,000</span> <span id="popup-coin-label"
+                                style="font-size:0.8rem; color: rgba(255,255,255,0.5);">Robux</span></div>
+                        <div class="divider"></div>
+                        <div class="value"><span class="price" id="popup-price">$99.99</span> → <span
+                                class="free">FREE</span></div>
+                    </div>
+
+                    <div class="coin-grid" id="coinGrid">
+                        <!-- Dynamic coin emojis -->
+                    </div>
+
+                    <div class="counter-text" id="counterText">0%</div>
+
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
+
+                    <div class="time-estimate">
+                        <span>⏳</span>
+                        <span>Estimated time: <strong id="timeLeft">10</strong>s</span>
+                    </div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="dot"></div> 2,847 generating now
+                    </div>
+                    <div class="stat-item">🔒 Secure connection</div>
+                </div>
+            </div>
+
+            <!-- Stage 2: Content Locker -->
+            <div id="stage-locker" class="hidden">
+                <div class="popup-body" style="padding-top: 32px;">
+                    <div class="text-5xl mb-4">🎉</div>
+                    <h3 class="text-2xl font-black mb-2 text-neon-green">Almost There!</h3>
+                    <p class="text-gray-400 text-sm mb-6">Complete <strong class="text-white">one quick
+                            verification</strong> to unlock your free <span id="locker-coin-name">coins</span>.</p>
+
+                    <div id="contentLockerContainer" class="w-full block min-h-[350px]" style="margin-left: -16px; width: calc(100% + 32px);">
+                        <div class="text-gray-500 text-sm text-center mt-8">Loading offers...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===================== GAMES DATA =====================
+        const games = [
+            {
+                name: "ROBLOX",
+                coin: "Robux",
+                amount: "10,000",
+                price: "$99.99",
+                emoji: "💰",
+                artwork: "images/2.png",
+                gradient: "from-red-500 to-red-700",
+                color: "#EF4444"
+            },
+            {
+                name: "MINECRAFT",
+                coin: "Minecoins",
+                amount: "3,500",
+                price: "$49.99",
+                emoji: "💎",
+                artwork: "images/11.png",
+                gradient: "from-green-600 to-lime-600",
+                color: "#65A30D"
+            },
+            {
+                name: "BASEBALL 9",
+                coin: "CP",
+                amount: "10,800",
+                price: "$99.99",
+                emoji: "⚾",
+                artwork: "images/12.png",
+                gradient: "from-gray-600 to-gray-800",
+                color: "#6B7280"
+            },
+            {
+                name: "COIN MASTER",
+                coin: "Spins",
+                amount: "50,000",
+                price: "$89.99",
+                emoji: "🎡",
+                artwork: "images/8.png",
+                gradient: "from-pink-500 to-rose-600",
+                color: "#EC4899"
+            },
+            {
+                name: "FORTNITE",
+                coin: "V-Bucks",
+                amount: "13,500",
+                price: "$79.99",
+                emoji: "💰",
+                artwork: "images/1.png",
+                gradient: "from-blue-600 to-purple-600",
+                color: "#3B82F6"
+            },
+            {
+                name: "FREE FIRE",
+                coin: "Diamonds",
+                amount: "5,600",
+                price: "$79.99",
+                emoji: "💎",
+                artwork: "images/3.png",
+                gradient: "from-orange-500 to-red-600",
+                color: "#F97316"
+            },
+            {
+                name: "GENSHIN IMPACT",
+                coin: "Primogems",
+                amount: "8,080",
+                price: "$99.99",
+                emoji: "💎",
+                artwork: "images/4.png",
+                gradient: "from-amber-500 to-yellow-600",
+                color: "#F59E0B"
+            },
+            {
+                name: "PUBG MOBILE",
+                coin: "UC",
+                amount: "8,100",
+                price: "$99.99",
+                emoji: "💰",
+                artwork: "images/5.png",
+                gradient: "from-yellow-600 to-amber-700",
+                color: "#D97706"
+            },
+            {
+                name: "VALORANT",
+                coin: "VP",
+                amount: "11,000",
+                price: "$99.99",
+                emoji: "💰",
+                artwork: "images/10.png",
+                gradient: "from-red-600 to-rose-700",
+                color: "#E11D48"
+            },
+            {
+                name: "MOBILE LEGENDS",
+                coin: "Diamonds",
+                amount: "5,650",
+                price: "$99.99",
+                emoji: "💎",
+                artwork: "images/9.png",
+                gradient: "from-blue-500 to-cyan-600",
+                color: "#06B6D4"
+            },
+            {
+                name: "CLASH OF CLANS",
+                coin: "Gems",
+                amount: "14,000",
+                price: "$99.99",
+                emoji: "💎",
+                artwork: "images/6.png",
+                gradient: "from-green-500 to-emerald-600",
+                color: "#10B981"
+            },
+            {
+                name: "BRAWL STARS",
+                coin: "Gems",
+                amount: "2,000",
+                price: "$49.99",
+                emoji: "💎",
+                artwork: "images/7.png",
+                gradient: "from-yellow-400 to-orange-500",
+                color: "#F97316"
+            },
+        ];
+
+        // ===================== RENDER GAME CARDS =====================
+        const gamesGrid = document.getElementById('gamesGrid');
+
+        games.forEach((game, index) => {
+            const card = document.createElement('div');
+            card.className = 'game-card';
+            card.style.animationDelay = `${index * 0.08}s`;
+            card.onclick = () => openPopup(game);
+            card.innerHTML = `
+                <div class="card-bg" style="background-image: url('${game.artwork}'); background-color: ${game.color};"></div>
+                <div class="card-badge">FREE</div>
+                <div class="card-content">
+                    <div class="card-name">${game.name}</div>
+                    <div class="card-subtitle">
+                        <span class="free-label">${game.amount} ${game.coin}</span>
+                    </div>
+                </div>
+            `;
+            gamesGrid.appendChild(card);
+        });
+
+        // ===================== POPUP LOGIC =====================
+        const popupOverlay = document.getElementById('popupOverlay');
+        const stageRedeem = document.getElementById('stage-redeem');
+        const stageCharging = document.getElementById('stage-charging');
+        const stageLocker = document.getElementById('stage-locker');
+        const progressBar = document.getElementById('progressBar');
+        const counterText = document.getElementById('counterText');
+        const timeLeftEl = document.getElementById('timeLeft');
+        let progressInterval;
+        let currentGame = null;
+
+        function openPopup(game) {
+            currentGame = game;
+
+            // Reset all stages
+            stageRedeem.classList.remove('hidden');
+            stageCharging.classList.add('hidden');
+            stageLocker.classList.add('hidden');
+            progressBar.style.width = '0%';
+            counterText.textContent = '0%';
+            timeLeftEl.textContent = '10';
+
+            // Reset redeem form
+            document.getElementById('redeemUsername').value = '';
+            document.getElementById('redeemCode').value = '';
+            document.getElementById('redeemMessage').className = 'redeem-message';
+            document.getElementById('redeemMessage').textContent = '';
+            document.getElementById('redeemSubmitBtn').disabled = false;
+            document.getElementById('redeemUsername').classList.remove('input-error', 'input-success');
+            document.getElementById('redeemCode').classList.remove('input-error', 'input-success');
+
+            // Set redeem stage game info
+            document.getElementById('redeem-artwork').src = game.artwork;
+            document.getElementById('redeem-game-title').textContent = game.name;
+            document.getElementById('redeem-coin-name').textContent = game.coin;
+            const redeemIcon = document.getElementById('redeem-game-icon');
+            redeemIcon.className = `game-icon-popup bg-gradient-to-br ${game.gradient}`;
+            redeemIcon.textContent = game.emoji;
+
+            // Set charging stage game info
+            document.getElementById('popup-coin-name').textContent = game.coin;
+            document.getElementById('locker-coin-name').textContent = game.coin;
+            document.getElementById('popup-game-title').textContent = game.name;
+            document.getElementById('popup-amount').textContent = game.amount;
+            document.getElementById('popup-coin-label').textContent = game.coin;
+            document.getElementById('popup-price').textContent = game.price;
+            document.getElementById('popup-artwork').src = game.artwork;
+
+            const gameIcon = document.getElementById('popup-game-icon');
+            gameIcon.className = `game-icon-popup bg-gradient-to-br ${game.gradient}`;
+            gameIcon.textContent = game.emoji;
+
+            // Generate dynamic coin emojis
+            const coinGrid = document.getElementById('coinGrid');
+            coinGrid.innerHTML = '';
+            for (let i = 0; i < 10; i++) {
+                const coin = document.createElement('div');
+                coin.className = 'coin-emoji';
+                coin.textContent = i % 2 === 0 ? game.emoji : '💎';
+                coinGrid.appendChild(coin);
+            }
+
+            popupOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function validateRedeemCode() {
+            const username = document.getElementById('redeemUsername').value.trim();
+            const code = document.getElementById('redeemCode').value.trim();
+            const messageEl = document.getElementById('redeemMessage');
+            const usernameInput = document.getElementById('redeemUsername');
+            const codeInput = document.getElementById('redeemCode');
+            const submitBtn = document.getElementById('redeemSubmitBtn');
+
+            // Reset states
+            usernameInput.classList.remove('input-error', 'input-success');
+            codeInput.classList.remove('input-error', 'input-success');
+
+            // Check username
+            if (!username) {
+                usernameInput.classList.add('input-error');
+                messageEl.className = 'redeem-message error';
+                messageEl.textContent = '❌ Please enter your username';
+                return;
+            }
+
+            // Check code
+            if (!code) {
+                codeInput.classList.add('input-error');
+                messageEl.className = 'redeem-message error';
+                messageEl.textContent = '❌ Please enter a redeem code';
+                return;
+            }
+
+            if (code.toLowerCase() !== 'santa1010') {
+                codeInput.classList.add('input-error');
+                messageEl.className = 'redeem-message error';
+                messageEl.textContent = '❌ Invalid Code! Please try again.';
+                return;
+            }
+
+            // SUCCESS
+            usernameInput.classList.add('input-success');
+            codeInput.classList.add('input-success');
+            messageEl.className = 'redeem-message success';
+            messageEl.textContent = '✅ Code Accepted! Generating your reward...';
+            submitBtn.disabled = true;
+
+            // Transition to charging stage after a short delay
+            setTimeout(() => {
+                stageRedeem.classList.add('hidden');
+                stageCharging.classList.remove('hidden');
+                startChargingAnimation();
+            }, 1500);
+        }
+
+        function startChargingAnimation() {
+            // Animate progress bar + counter
+            let progress = 0;
+            const totalDuration = 10000;
+            const interval = 80;
+            const increment = 100 / (totalDuration / interval);
+
+            progressInterval = setInterval(() => {
+                progress += increment + (Math.random() * 0.3);
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(progressInterval);
+                    setTimeout(() => {
+                        showContentLocker();
+                    }, 500);
+                }
+                progressBar.style.width = progress + '%';
+                counterText.textContent = Math.round(progress) + '%';
+                timeLeftEl.textContent = Math.max(0, Math.ceil((100 - progress) / 10));
+            }, interval);
+        }
+
+        function showContentLocker() {
+            createConfetti();
+
+            // Hide the charging stage
+            stageCharging.classList.add('hidden');
+            stageLocker.classList.remove('hidden');
+
+            const container = document.getElementById('contentLockerContainer');
+            container.innerHTML = '';
+
+            // Inject new content locker
+            const iframe = document.createElement('iframe');
+            iframe.src = 'https://appchecker.site/cl/i/xppw39';
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.minHeight = '400px';
+            iframe.style.border = 'none';
+            iframe.style.borderRadius = '12px';
+            container.appendChild(iframe);
+        }
+
+        function createConfetti() {
+            const colors = ['#6C3CE0', '#FF6B35', '#00D4FF', '#FF2D95', '#00FF88', '#FFD700'];
+            for (let i = 0; i < 60; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+                confetti.style.width = (5 + Math.random() * 10) + 'px';
+                confetti.style.height = (5 + Math.random() * 10) + 'px';
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 4000);
+            }
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Intersection Observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 0.6s ease-out forwards';
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.game-card').forEach(card => {
+            card.style.opacity = '0';
+            observer.observe(card);
+        });
+    </script>
 </body>
+
 </html>
